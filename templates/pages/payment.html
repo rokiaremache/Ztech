@@ -1,0 +1,352 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Secure Payment — ZTech{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ── Card preview ── */
+.card-preview {
+  background: linear-gradient(135deg, #1a1f2e 0%, #0d1018 100%);
+  border-radius: 16px; padding: 28px 28px 22px;
+  aspect-ratio: 1.586; max-width: 360px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  margin-bottom: 28px;
+}
+.card-preview::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: rgba(200,169,110,0.08);
+}
+.card-preview::after {
+  content: '';
+  position: absolute; bottom: -60px; left: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: rgba(139,127,255,0.06);
+}
+.card-chip {
+  width: 42px; height: 32px;
+  background: linear-gradient(135deg, #c8a96e, #e0c28a);
+  border-radius: 6px; margin-bottom: 28px;
+  position: relative; z-index: 1;
+}
+.card-number-display {
+  font-size: 1.05rem; letter-spacing: 0.22em;
+  color: #fff; margin-bottom: 24px;
+  font-family: 'Courier New', monospace;
+  position: relative; z-index: 1;
+}
+.card-footer {
+  display: flex; justify-content: space-between;
+  position: relative; z-index: 1;
+}
+.card-label { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+.card-value { font-size: 0.85rem; color: #fff; letter-spacing: 0.05em; }
+
+/* ── Inline errors ── */
+.field-error { font-size: 0.75rem; color: #e57373; margin-top: 5px; display: flex; align-items: center; gap: 5px; }
+.field-error::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #e57373; flex-shrink: 0; }
+.form-control.has-error { border-color: #e57373 !important; }
+
+/* ── Error banner ── */
+.payment-errors {
+  background: rgba(229,115,115,0.1);
+  border: 1px solid rgba(229,115,115,0.3);
+  border-radius: var(--radius-md);
+  padding: 18px 20px; margin-bottom: 28px;
+}
+.payment-errors h4 { color: #e57373; font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.payment-errors ul { list-style: none; padding: 0; margin: 0; }
+.payment-errors li { font-size: 0.83rem; color: #ef9a9a; padding: 3px 0; display: flex; align-items: flex-start; gap: 8px; }
+.payment-errors li::before { content: '✕'; flex-shrink: 0; }
+
+/* ── Confirm modal ── */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px); z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+}
+.modal-backdrop.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 36px;
+  max-width: 420px; width: 90%;
+  transform: scale(0.94); transition: transform 0.25s ease;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+.modal-backdrop.open .modal-box { transform: scale(1); }
+.modal-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 300; margin-bottom: 10px; }
+.modal-body  { color: var(--text-muted); font-size: 0.88rem; line-height: 1.75; margin-bottom: 28px; }
+.modal-amount { font-size: 1.2rem; font-weight: 700; color: var(--accent); margin-top: 10px; display: block; }
+.modal-actions { display: flex; gap: 12px; }
+
+/* Secure badge */
+.secure-badge { display: flex; align-items: center; gap: 8px; font-size: 0.73rem; color: var(--text-subtle); margin-top: 16px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-bottom:80px;">
+  <div class="page-header">
+    <p class="section-label">Final Step</p>
+    <h1>Secure Payment</h1>
+  </div>
+
+  {% if errors %}
+  <div class="payment-errors reveal">
+    <h4><i class="bi bi-exclamation-triangle"></i> Payment could not be processed</h4>
+    <ul>
+      {% for err in errors %}
+      <li>{{ err }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start;">
+
+    <!-- Payment form -->
+    <div class="card reveal">
+      <div class="card-header"><h3>Card Details</h3></div>
+      <div class="card-body">
+
+        <!-- Live card preview -->
+        <div class="card-preview">
+          <div class="card-chip"></div>
+          <div class="card-number-display" id="previewNumber">•••• •••• •••• ••••</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-label">Card Holder</div>
+              <div class="card-value" id="previewName">YOUR NAME</div>
+            </div>
+            <div>
+              <div class="card-label">Expires</div>
+              <div class="card-value" id="previewExpiry">MM/YY</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden real form — submitted only after modal confirm -->
+        <form action="{% url 'payments:process' %}" method="POST" id="paymentForm" novalidate>
+          {% csrf_token %}
+
+          <div class="form-group" id="grp-number">
+            <label class="form-label">Card Number <span style="color:#e57373">*</span></label>
+            <input type="text" id="cardNumber" name="card_number"
+                   class="form-control" placeholder="1234 5678 9012 3456"
+                   maxlength="19" autocomplete="cc-number" inputmode="numeric"
+                   oninput="formatCardNumber(this)" required>
+            <div class="field-error" id="err-number" style="display:none;"></div>
+          </div>
+
+          <div class="form-group" id="grp-name">
+            <label class="form-label">Cardholder Name <span style="color:#e57373">*</span></label>
+            <input type="text" id="cardName" name="card_name"
+                   class="form-control" placeholder="Name as printed on card"
+                   autocomplete="cc-name"
+                   oninput="document.getElementById('previewName').textContent=this.value.toUpperCase()||'YOUR NAME'">
+            <div class="field-error" id="err-name" style="display:none;"></div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group" id="grp-expiry">
+              <label class="form-label">Expiry Date <span style="color:#e57373">*</span></label>
+              <input type="text" id="cardExpiry" name="card_expiry"
+                     class="form-control" placeholder="MM/YY"
+                     maxlength="5" autocomplete="cc-exp"
+                     oninput="formatExpiry(this)">
+              <div class="field-error" id="err-expiry" style="display:none;"></div>
+            </div>
+            <div class="form-group" id="grp-cvv">
+              <label class="form-label">CVV <span style="color:#e57373">*</span></label>
+              <input type="text" id="cardCvv" name="card_cvv"
+                     class="form-control" placeholder="•••"
+                     maxlength="3" autocomplete="cc-csc"
+                     inputmode="numeric">
+              <div class="field-error" id="err-cvv" style="display:none;"></div>
+            </div>
+          </div>
+
+          <!-- Submit triggers the modal, not direct submit -->
+          <button type="button" class="btn btn-primary btn-full btn-lg" id="openModalBtn" onclick="validateAndOpenModal()">
+            <i class="bi bi-lock-fill"></i>&nbsp; Pay {{ cart.total|floatformat:0 }} DZD
+          </button>
+          <div class="secure-badge">
+            <i class="bi bi-shield-lock-fill" style="color:#81c784;"></i>
+            256-bit SSL encryption &mdash; your card details are never stored
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Order summary -->
+    <div style="position:sticky;top:88px;">
+      <div class="card reveal">
+        <div class="card-header"><h3>Order Summary</h3></div>
+        <div class="card-body">
+          {% for item in cart.items.all %}
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;">
+            <div style="width:48px;height:48px;flex-shrink:0;border-radius:var(--radius-sm);overflow:hidden;background:var(--bg-3);">
+              {% if item.product.main_image %}
+              <img src="{{ item.product.main_image.url }}" style="width:100%;height:100%;object-fit:cover;">
+              {% endif %}
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:0.83rem;color:var(--text);">{{ item.product.name }}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">Qty: {{ item.quantity }}</div>
+            </div>
+            <div style="font-size:0.85rem;font-weight:600;">{{ item.total_price|floatformat:0 }} DZD</div>
+          </div>
+          {% endfor %}
+
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text-muted);margin-bottom:8px;">
+            <span>Subtotal</span><span>{{ cart.subtotal|floatformat:0 }} DZD</span>
+          </div>
+          {% if cart.discount_amount %}
+          <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:#81c784;margin-bottom:8px;">
+            <span>Discount (10%)</span><span>-{{ cart.discount_amount|floatformat:0 }} DZD</span>
+          </div>
+          {% endif %}
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;">
+            <span>Total</span>
+            <span style="color:var(--accent);" id="summaryTotal">{{ cart.total|floatformat:0 }} DZD</span>
+          </div>
+
+          <div class="divider"></div>
+          <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:8px;">Delivering to</p>
+          <div style="font-size:0.83rem;color:var(--text-muted);line-height:1.85;">
+            <strong style="color:var(--text);">{{ address.full_name }}</strong><br>
+            {{ address.street }}<br>{{ address.city }}, {{ address.wilaya }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Confirmation Modal ── -->
+<div class="modal-backdrop" id="confirmModal">
+  <div class="modal-box">
+    <div class="modal-title">Confirm Payment</div>
+    <div class="modal-body">
+      You are about to make a secure payment of:
+      <span class="modal-amount">{{ cart.total|floatformat:0 }} DZD</span>
+      This action cannot be undone. Your card will be charged immediately.
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="submitPayment()" id="confirmBtn">
+        <i class="bi bi-lock-fill"></i>&nbsp; Confirm Payment
+      </button>
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── Card number formatter ── */
+function formatCardNumber(inp) {
+  var v = inp.value.replace(/\D/g, '').substring(0, 16);
+  inp.value = v.replace(/(.{4})/g, '$1 ').trim();
+  var display = v.padEnd(16, '•').replace(/(.{4})/g, '$1 ').trim();
+  document.getElementById('previewNumber').textContent = display;
+}
+
+/* ── Expiry formatter ── */
+function formatExpiry(inp) {
+  var v = inp.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0, 2) + '/' + v.substring(2);
+  inp.value = v;
+  document.getElementById('previewExpiry').textContent = v || 'MM/YY';
+}
+
+/* ── Client-side validation (mirrors backend) ── */
+function clearErrors() {
+  ['number','name','expiry','cvv'].forEach(function(f) {
+    document.getElementById('err-'+f).style.display = 'none';
+    document.getElementById('err-'+f).textContent = '';
+    var inp = document.getElementById('card'+f.charAt(0).toUpperCase()+f.slice(1));
+    if (inp) inp.classList.remove('has-error');
+  });
+}
+
+function showError(field, msg) {
+  var el = document.getElementById('err-'+field);
+  el.textContent = msg;
+  el.style.display = 'flex';
+  var inp = document.getElementById('card'+field.charAt(0).toUpperCase()+field.slice(1));
+  if (inp) inp.classList.add('has-error');
+}
+
+function validateAndOpenModal() {
+  clearErrors();
+  var number = document.getElementById('cardNumber').value.replace(/\s/g, '');
+  var name   = document.getElementById('cardName').value.trim();
+  var expiry = document.getElementById('cardExpiry').value.trim();
+  var cvv    = document.getElementById('cardCvv').value.trim();
+  var valid  = true;
+
+  /* Card number */
+  if (!/^\d{16}$/.test(number)) {
+    showError('number', number.length ? 'Card number must be exactly 16 digits (you entered ' + number.length + ').' : 'Card number is required.');
+    valid = false;
+  }
+
+  /* Name */
+  if (name.length < 2) {
+    showError('name', 'Cardholder name is required.');
+    valid = false;
+  }
+
+  /* Expiry */
+  if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+    showError('expiry', 'Format must be MM/YY.');
+    valid = false;
+  } else {
+    var parts = expiry.split('/');
+    var month = parseInt(parts[0]);
+    var year  = parseInt(parts[1]) + 2000;
+    var now   = new Date();
+    if (month < 1 || month > 12) {
+      showError('expiry', 'Invalid month.');
+      valid = false;
+    } else if (year < now.getFullYear() || (year === now.getFullYear() && month < now.getMonth() + 1)) {
+      showError('expiry', 'This card is expired.');
+      valid = false;
+    }
+  }
+
+  /* CVV */
+  if (!/^\d{3}$/.test(cvv)) {
+    showError('cvv', 'CVV must be exactly 3 digits.');
+    valid = false;
+  }
+
+  if (valid) openModal();
+}
+
+function openModal()  { document.getElementById('confirmModal').classList.add('open'); }
+function closeModal() { document.getElementById('confirmModal').classList.remove('open'); }
+
+function submitPayment() {
+  var btn = document.getElementById('confirmBtn');
+  btn.innerHTML = '<span style="display:inline-block;animation:spin 0.8s linear infinite;margin-right:6px;">↻</span> Processing...';
+  btn.disabled = true;
+  document.getElementById('paymentForm').submit();
+}
+
+/* Close modal on backdrop click */
+document.getElementById('confirmModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+/* Keyboard: Escape closes modal */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Cancelled — ZTech</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#f4f4f4;font-family:'Helvetica Neue',Arial,sans-serif;color:#1a1a1a;}
+  .wrapper{max-width:580px;margin:40px auto;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
+  .header{background:#080a0f;padding:32px 40px;text-align:center;}
+  .header h1{font-size:1.8rem;letter-spacing:0.08em;color:#fff;font-weight:300;}
+  .header h1 span{color:#c8a96e;}
+  .header p{color:#7a8099;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-top:6px;}
+  .body{padding:40px;}
+  .alert{background:#fff5f5;border:1px solid #fed7d7;border-left:3px solid #e57373;border-radius:4px;padding:18px 20px;margin-bottom:24px;}
+  .alert h3{color:#c53030;font-size:0.95rem;margin-bottom:6px;}
+  .alert p{color:#742a2a;font-size:0.85rem;line-height:1.7;}
+  .ref-box{background:#f9f9f9;border:1px solid #e5e5e5;border-radius:4px;padding:16px 20px;margin-bottom:20px;}
+  .ref-box span{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#888;display:block;margin-bottom:4px;}
+  .ref-box strong{font-size:1.1rem;color:#c8a96e;}
+  .reason-box{background:#fffbf0;border:1px solid #f6e05e;border-radius:4px;padding:16px 20px;margin-bottom:24px;}
+  .reason-box h4{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#975a16;margin-bottom:6px;}
+  .reason-box p{font-size:0.9rem;color:#7b341e;line-height:1.7;}
+  .refund-note{background:#f0fff4;border:1px solid #9ae6b4;border-radius:4px;padding:14px 18px;margin-bottom:24px;font-size:0.85rem;color:#276749;}
+  .footer{background:#f9f9f9;border-top:1px solid #e5e5e5;padding:24px 40px;text-align:center;}
+  .footer p{font-size:0.75rem;color:#aaa;line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>Z<span>T</span>ech</h1>
+    <p>Order Cancellation</p>
+  </div>
+  <div class="body">
+    <p style="font-size:1rem;margin-bottom:16px;">Dear <strong>{{ order.full_name }}</strong>,</p>
+    <div class="alert">
+      <h3>Your order has been cancelled</h3>
+      <p>We regret to inform you that your order has been cancelled by our team.</p>
+    </div>
+    <div class="ref-box">
+      <span>Order Reference</span>
+      <strong>#{{ order.reference }}</strong>
+    </div>
+    <div class="reason-box">
+      <h4>Reason for Cancellation</h4>
+      <p>{{ reason }}</p>
+    </div>
+    {% if was_paid %}
+    <div class="refund-note">
+      <strong>Refund Information:</strong> Since your order was paid, a full refund of
+      <strong>{{ order.total|floatformat:0 }} DZD</strong> will be processed within 3–5 business days.
+    </div>
+    {% endif %}
+    <p style="font-size:0.88rem;color:#555;line-height:1.8;">
+      If you believe this is an error or have any questions, please contact us by replying to this email.
+    </p>
+  </div>
+  <div class="footer">
+    <p>ZTech — Premium PC Hardware Algeria<br>
+    This email was sent to {{ order.email }}</p>
+  </div>
+</div>
+</body>
+</html>

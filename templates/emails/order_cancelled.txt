@@ -1,0 +1,14 @@
+ZTech — Order Cancellation Notice
+==================================
+
+Dear {{ order.full_name }},
+
+Your order #{{ order.reference }} has been CANCELLED.
+
+Reason: {{ reason }}
+
+{% if was_paid %}A full refund of {{ order.total|floatformat:0 }} DZD will be processed within 3-5 business days.{% endif %}
+
+If you have any questions, reply to this email.
+
+— ZTech Team

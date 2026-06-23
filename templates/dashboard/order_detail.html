@@ -1,0 +1,204 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Order {{ order.reference }} — Dashboard{% endblock %}
+{% block page_title %}Order {{ order.reference }}{% endblock %}
+{% block extra_css %}
+<style>
+.cancel-modal-backdrop {
+  position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);
+  z-index:3000;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.2s ease;
+}
+.cancel-modal-backdrop.open{opacity:1;pointer-events:all;}
+.cancel-modal-box {
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:36px;max-width:480px;width:90%;
+  transform:scale(0.95);transition:transform 0.2s ease;
+  box-shadow:0 30px 80px rgba(0,0,0,0.5);
+}
+.cancel-modal-backdrop.open .cancel-modal-box{transform:scale(1);}
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'dashboard:orders' %}" class="btn btn-ghost btn-sm" style="margin-bottom:20px;color:var(--text-muted);display:inline-flex;align-items:center;gap:6px;">
+  <i class="bi bi-arrow-left"></i> All Orders
+</a>
+
+<div style="display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;">
+
+  <!-- Left column -->
+  <div style="display:flex;flex-direction:column;gap:20px;">
+
+    <!-- Items -->
+    <div class="card reveal">
+      <div class="card-header"><h3>Items</h3></div>
+      <div class="card-body">
+        {% for item in order.items.all %}
+        <div style="display:flex;gap:14px;align-items:center;{% if not forloop.last %}padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--border);{% endif %}">
+          <div style="width:56px;height:56px;flex-shrink:0;border-radius:var(--radius-sm);overflow:hidden;background:var(--bg-3);">
+            {% if item.product_image %}<img src="/media/{{ item.product_image }}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">{% endif %}
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:0.9rem;color:var(--text);">{{ item.product_name }}</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);">{{ item.unit_price|floatformat:0 }} DZD × {{ item.quantity }}</div>
+          </div>
+          <div style="font-weight:600;">{{ item.total_price|floatformat:0 }} DZD</div>
+        </div>
+        {% endfor %}
+        <div class="divider"></div>
+        {% if order.discount_amount %}<div style="display:flex;justify-content:space-between;font-size:0.85rem;color:#81c784;margin-bottom:8px;"><span>Discount</span><span>-{{ order.discount_amount|floatformat:0 }} DZD</span></div>{% endif %}
+        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1rem;">
+          <span>Total</span><span style="color:var(--accent);">{{ order.total|floatformat:0 }} DZD</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delivery address -->
+    <div class="card reveal">
+      <div class="card-header"><h3>Delivery Address</h3></div>
+      <div class="card-body" style="font-size:0.87rem;color:var(--text-muted);line-height:2;">
+        <strong style="color:var(--text);">{{ order.full_name }}</strong><br>
+        {{ order.street }}<br>{{ order.city }}, {{ order.wilaya }}<br>
+        {{ order.phone }}<br>{{ order.email }}
+      </div>
+    </div>
+
+    <!-- Cancellation info if cancelled -->
+    {% if order.status == 'cancelled' and order.cancellation_reason %}
+    <div class="card reveal" style="border-color:rgba(229,115,115,0.3);">
+      <div class="card-header" style="border-color:rgba(229,115,115,0.2);">
+        <h3 style="color:#e57373;">Cancellation Details</h3>
+        {% if order.cancelled_at %}<span style="font-size:0.75rem;color:var(--text-muted);">{{ order.cancelled_at|date:"d M Y, H:i" }}</span>{% endif %}
+      </div>
+      <div class="card-body">
+        <div style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:6px;">Reason</div>
+        <div style="font-size:0.9rem;color:var(--text);line-height:1.7;">{{ order.cancellation_reason }}</div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if order.customer_notes %}
+    <div class="card reveal">
+      <div class="card-header"><h3>Customer Notes</h3></div>
+      <div class="card-body" style="font-size:0.87rem;color:var(--text-muted);">{{ order.customer_notes }}</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Right column -->
+  <div style="display:flex;flex-direction:column;gap:16px;position:sticky;top:76px;">
+
+    <!-- Order info -->
+    <div class="card reveal">
+      <div class="card-header"><h3>Order Info</h3></div>
+      <div class="card-body">
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;">Reference</div>
+        <div style="font-weight:700;color:var(--accent);font-size:1.05rem;margin-bottom:16px;">{{ order.reference }}</div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;">Placed</div>
+        <div style="font-size:0.85rem;margin-bottom:16px;">{{ order.created_at|date:"d F Y, H:i" }}</div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px;">Status</div>
+        <span class="status-badge status-{{ order.status }}" style="display:inline-flex;">{{ order.get_status_display }}</span>
+        {% if order.paid_at %}<div style="font-size:0.73rem;color:var(--text-subtle);margin-top:8px;">Paid: {{ order.paid_at|date:"d M Y, H:i" }}</div>{% endif %}
+        {% if order.shipped_at %}<div style="font-size:0.73rem;color:var(--text-subtle);">Shipped: {{ order.shipped_at|date:"d M Y, H:i" }}</div>{% endif %}
+      </div>
+    </div>
+
+    <!-- Update status -->
+    {% if order.status != 'cancelled' %}
+    <div class="card reveal">
+      <div class="card-header"><h3>Update Status</h3></div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="update_status">
+          <div class="form-group">
+            <label class="form-label">New Status</label>
+            <select name="status" class="form-control">
+              {% for code, label in status_choices %}
+              {% if code != 'cancelled' %}
+              <option value="{{ code }}" {% if order.status == code %}selected{% endif %}>{{ label }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Admin Notes (optional)</label>
+            <textarea name="admin_notes" class="form-control" rows="3">{{ order.admin_notes }}</textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Update Order</button>
+        </form>
+
+        <!-- Cancel button -->
+        {% if order.can_be_cancelled %}
+        <div class="divider"></div>
+        <button class="btn btn-full" style="border:1px solid rgba(229,115,115,0.4);color:#e57373;background:rgba(229,115,115,0.06);" onclick="openCancelModal()">
+          <i class="bi bi-x-circle"></i>&nbsp; Cancel Order
+        </button>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<!-- ── Cancel Order Modal ── -->
+<div class="cancel-modal-backdrop" id="cancelModal">
+  <div class="cancel-modal-box">
+    <h3 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:300;margin-bottom:8px;color:#e57373;">Cancel Order {{ order.reference }}</h3>
+    <p style="color:var(--text-muted);font-size:0.87rem;line-height:1.75;margin-bottom:24px;">
+      This action will cancel the order and notify the customer by email.
+      A cancellation reason is required and will be sent to the customer.
+    </p>
+    <form method="POST" id="cancelForm">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="cancel">
+      <div class="form-group" style="margin-bottom:20px;">
+        <label class="form-label">Cancellation Reason <span style="color:#e57373;">*</span></label>
+        <textarea name="cancellation_reason" id="cancelReason" class="form-control" rows="4"
+                  placeholder="Explain why this order is being cancelled (e.g. item out of stock, customer requested, payment issue)..."
+                  required></textarea>
+        <div style="font-size:0.73rem;color:var(--text-subtle);margin-top:5px;">This reason will be included in the email sent to the customer.</div>
+      </div>
+      <input type="hidden" name="admin_notes" value="{{ order.admin_notes }}">
+      <div style="display:flex;gap:12px;">
+        <button type="button" class="btn btn-outline" onclick="closeCancelModal()">Go Back</button>
+        <button type="submit" class="btn btn-full" style="background:#e57373;color:#fff;" id="cancelConfirmBtn">
+          <i class="bi bi-x-circle"></i>&nbsp; Confirm Cancellation
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openCancelModal()  { document.getElementById('cancelModal').classList.add('open'); }
+function closeCancelModal() { document.getElementById('cancelModal').classList.remove('open'); }
+
+// Attach to the form's submit event — reliable across all browsers
+document.getElementById('cancelForm').addEventListener('submit', function(e) {
+  var reasonField = document.getElementById('cancelReason');
+  var reason = reasonField.value.trim();
+  if (!reason) {
+    e.preventDefault();  // block submit — reason is empty
+    reasonField.style.borderColor = '#e57373';
+    reasonField.focus();
+    return;
+  }
+  // Reason filled — show loading state and allow submit
+  reasonField.style.borderColor = '';
+  var btn = document.getElementById('cancelConfirmBtn');
+  btn.innerHTML = '<span style="display:inline-block;animation:spin 0.8s linear infinite;margin-right:6px;">↻</span> Cancelling...';
+  btn.disabled = true;
+  // Re-enable after 8s as a safety net (in case redirect doesn't happen)
+  setTimeout(function(){ btn.disabled = false; }, 8000);
+});
+
+document.getElementById('cancelModal').addEventListener('click', function(e) {
+  if (e.target === this) closeCancelModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeCancelModal();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,6 @@
+/* Women / Ivory-Rose overrides */
+[data-theme="women"] .hero-title em { text-shadow: 0 0 60px rgba(193,123,92,0.25); }
+[data-theme="women"] .product-card:hover { box-shadow: 0 20px 60px rgba(193,123,92,0.1); }
+[data-theme="women"] .section-title { letter-spacing: 0.01em; }
+[data-theme="women"] .btn-primary { letter-spacing: 0.12em; }
+[data-theme="women"] .badge-new { background: var(--accent-2); }

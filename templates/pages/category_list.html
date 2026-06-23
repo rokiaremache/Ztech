@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Catalogue — ZTech{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <p class="section-label">Browse</p>
+    <h1>Catalogue</h1>
+    <p style="color:var(--text-muted);margin-top:8px;">Explore our full range of PC hardware and accessories.</p>
+  </div>
+
+  {% if categories %}
+  <div class="category-grid" style="margin-bottom:80px;">
+    {% for cat in categories %}
+    <a href="{{ cat.get_absolute_url }}" class="category-card reveal reveal-delay-{{ forloop.counter }}">
+      {% if cat.image %}
+        <img src="{{ cat.image.url }}" alt="{{ cat.name }}" loading="lazy">
+      {% else %}
+        <!-- Elegant fallback when no image is uploaded -->
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg-3);">
+          <i class="bi bi-grid" style="font-size:2rem;color:var(--text-subtle);opacity:0.4;"></i>
+        </div>
+      {% endif %}
+      <div class="category-card-overlay"></div>
+      <div class="category-card-label">
+        {{ cat.name }}
+        {% with count=cat.products.count %}
+        {% if count %}<br><span style="font-size:0.62rem;opacity:0.55;font-family:var(--font-body);">{{ count }} product{{ count|pluralize }}</span>{% endif %}
+        {% endwith %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- How to add category images (only visible to admin) -->
+  {% if request.user.is_staff %}
+  <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px 24px;margin-bottom:80px;font-size:0.85rem;color:var(--text-muted);line-height:1.8;">
+    <strong style="color:var(--accent);">Admin tip:</strong> To add images to category cards, go to
+    <a href="/admin/products/category/" style="color:var(--accent);">Admin → Categories</a>
+    and upload an image for each category. Recommended size: 800×600px.
+  </div>
+  {% endif %}
+
+  {% else %}
+  <div class="empty-state" style="margin-bottom:80px;">
+    <i class="bi bi-grid" style="font-size:3rem;display:block;margin-bottom:1rem;color:var(--text-subtle);"></i>
+    <h3>No categories yet</h3>
+    <p style="margin-top:8px;color:var(--text-muted);">Add categories in the admin panel.</p>
+    {% if request.user.is_staff %}
+    <a href="/admin/products/category/add/" class="btn btn-primary" style="margin-top:24px;">Add Category</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

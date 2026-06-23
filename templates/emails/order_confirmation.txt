@@ -1,0 +1,24 @@
+ZTech — Order Confirmed
+
+Hello {{ order.full_name }},
+
+Your order has been confirmed!
+
+Order Reference: {{ order.reference }}
+
+Items:
+{% for item in order_items %}- {{ item.product_name }} x{{ item.quantity }} — {{ item.total_price|floatformat:0 }} DZD
+{% endfor %}
+Subtotal: {{ order.subtotal|floatformat:0 }} DZD{% if order.discount_amount %}
+Discount: -{{ order.discount_amount|floatformat:0 }} DZD{% endif %}
+Total: {{ order.total|floatformat:0 }} DZD
+
+Delivery:
+{{ order.full_name }}
+{{ order.street }}
+{{ order.city }}, {{ order.wilaya }}
+{{ order.phone }}
+
+View your order: {{ site_url }}/accounts/orders/{{ order.reference }}/
+
+Thank you for shopping at ZTech!

@@ -1,0 +1,4 @@
+/* Men / Dark Luxury overrides — variables already handle this via data-theme */
+[data-theme="men"] .hero-title em { text-shadow: 0 0 60px rgba(200,169,110,0.3); }
+[data-theme="men"] .product-card:hover { box-shadow: 0 20px 60px rgba(200,169,110,0.08); }
+[data-theme="men"] .btn-primary { letter-spacing: 0.14em; }

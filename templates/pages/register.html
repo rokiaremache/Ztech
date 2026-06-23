@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Create Account — ZTech{% endblock %}
+{% block content %}
+<div style="min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:40px 1rem;">
+  <div style="width:100%;max-width:480px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <p class="section-label">Join ZTech</p>
+      <h1 style="font-family:var(--font-heading);font-size:2.4rem;font-weight:300;">Create Account</h1>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" name="first_name" class="form-control {% if form.first_name.errors %}error{% endif %}" value="{{ form.first_name.value|default:'' }}" required>
+              {% if form.first_name.errors %}<div class="form-error">{{ form.first_name.errors.0 }}</div>{% endif %}
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" name="last_name" class="form-control {% if form.last_name.errors %}error{% endif %}" value="{{ form.last_name.value|default:'' }}" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control {% if form.email.errors %}error{% endif %}" value="{{ form.email.value|default:'' }}" required>
+            {% if form.email.errors %}<div class="form-error">{{ form.email.errors.0 }}</div>{% endif %}
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone (optional)</label>
+            <input type="tel" name="phone" class="form-control" value="{{ form.phone.value|default:'' }}" placeholder="05XX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" name="password1" class="form-control {% if form.password1.errors %}error{% endif %}" required>
+            {% if form.password1.errors %}<div class="form-error">{{ form.password1.errors.0 }}</div>{% endif %}
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" name="password2" class="form-control {% if form.password2.errors %}error{% endif %}" required>
+            {% if form.password2.errors %}<div class="form-error">{{ form.password2.errors.0 }}</div>{% endif %}
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:8px;">Create Account</button>
+        </form>
+        <div class="divider-text" style="margin:24px 0;">already a member?</div>
+        <a href="{% url 'accounts:login' %}" class="btn btn-outline btn-full">Sign In</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

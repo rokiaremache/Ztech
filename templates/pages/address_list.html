@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Addresses — ZTech{% endblock %}
+{% block content %}
+<div class="container" style="padding-bottom:80px;">
+  <div class="page-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <div><p class="section-label">Account</p><h1>Addresses</h1></div>
+    <a href="{% url 'accounts:address_add' %}" class="btn btn-primary">Add Address</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+    {% for address in addresses %}
+    <div class="card reveal">
+      <div class="card-body">
+        {% if address.is_default %}<span class="badge badge-new" style="margin-bottom:12px;display:inline-flex;">Default</span>{% endif %}
+        <div style="font-weight:600;margin-bottom:6px;">{{ address.full_name }}</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.9;">
+          {{ address.street }}<br>{{ address.city }}, {{ address.get_wilaya_display }}<br>{{ address.phone }}
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <a href="{% url 'accounts:address_edit' address.pk %}" class="btn btn-outline btn-sm">Edit</a>
+          {% if not address.is_default %}
+          <form action="{% url 'accounts:address_set_default' address.pk %}" method="POST" style="display:inline;">{% csrf_token %}<button type="submit" class="btn btn-ghost btn-sm">Set Default</button></form>
+          {% endif %}
+          <form action="{% url 'accounts:address_delete' address.pk %}" method="POST" style="display:inline;margin-left:auto;">{% csrf_token %}<button type="submit" class="btn btn-ghost btn-sm" style="color:var(--text-subtle);">Delete</button></form>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="empty-state" style="grid-column:1/-1;">
+      <h3>No addresses saved</h3>
+      <a href="{% url 'accounts:address_add' %}" class="btn btn-primary" style="margin-top:24px;">Add Address</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

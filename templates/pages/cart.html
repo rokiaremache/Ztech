@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cart — ZTech{% endblock %}
+{% block content %}
+<div class="container" style="padding-bottom:80px;">
+  <div class="page-header">
+    <h1>Your Cart</h1>
+    <p style="color:var(--text-muted);margin-top:6px;">{{ cart.total_items }} item{{ cart.total_items|pluralize }}</p>
+  </div>
+
+  {% if items %}
+  <div style="display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start;">
+    <!-- Items -->
+    <div>
+      {% for item in items %}
+      <div class="cart-item reveal" style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);align-items:center;">
+        <div style="width:90px;height:90px;flex-shrink:0;border-radius:var(--radius-sm);overflow:hidden;background:var(--bg-3);border:1px solid var(--border);">
+          {% if item.product.main_image %}
+          <img src="{{ item.product.main_image.url }}" alt="{{ item.product.name }}" style="width:100%;height:100%;object-fit:cover;">
+          {% endif %}
+        </div>
+        <div style="flex:1;">
+          {% if item.product.brand %}<div style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:4px;">{{ item.product.brand.name }}</div>{% endif %}
+          <a href="{{ item.product.get_absolute_url }}" style="font-family:var(--font-heading);font-size:1rem;font-weight:400;color:var(--text);transition:color var(--transition);" class="hover-accent">{{ item.product.name }}</a>
+          <div style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;">{{ item.unit_price|floatformat:0 }} DZD each</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <form action="{% url 'cart:update_cart' item.id %}" method="POST" style="display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--radius-sm);">
+            {% csrf_token %}
+            <button type="button" onclick="this.nextElementSibling.stepDown();this.form.submit();" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);">
+              <i class="bi bi-dash"></i>
+            </button>
+            <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="{{ item.product.stock }}" style="width:44px;text-align:center;background:transparent;border:none;outline:none;color:var(--text);font-family:var(--font-body);font-size:0.88rem;" onchange="this.form.submit()">
+            <button type="button" onclick="this.previousElementSibling.stepUp();this.form.submit();" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);">
+              <i class="bi bi-plus"></i>
+            </button>
+          </form>
+          <div style="font-weight:600;min-width:100px;text-align:right;">{{ item.total_price|floatformat:0 }} DZD</div>
+          <form action="{% url 'cart:remove_from_cart' item.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" style="color:var(--text-subtle);transition:color var(--transition);" class="nav-icon-btn">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div style="padding-top:16px;display:flex;justify-content:flex-end;">
+        <form action="{% url 'cart:clear_cart' %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-ghost btn-sm" style="color:var(--text-muted);">Clear cart</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="card reveal" style="position:sticky;top:88px;">
+      <div class="card-header"><h3>Order Summary</h3></div>
+      <div class="card-body">
+        <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:0.88rem;color:var(--text-muted);">
+          <span>Subtotal ({{ cart.total_items }} items)</span>
+          <span>{{ cart.subtotal|floatformat:0 }} DZD</span>
+        </div>
+        {% if cart.discount_amount %}
+        <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:0.88rem;color:#81c784;">
+          <span>Discount (10%)</span>
+          <span>-{{ cart.discount_amount|floatformat:0 }} DZD</span>
+        </div>
+        {% endif %}
+        {% if not cart.qualifies_for_discount %}
+        <div style="background:var(--accent-glow);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;margin-bottom:16px;font-size:0.78rem;color:var(--text-muted);">
+          Add {{ cart.subtotal|floatformat:0|add:"-150000"|stringformat:"s" }} more DZD to unlock 10% discount
+        </div>
+        {% endif %}
+        <div class="divider"></div>
+        <div style="display:flex;justify-content:space-between;font-size:1.1rem;font-weight:600;margin-bottom:24px;">
+          <span>Total</span>
+          <span>{{ cart.total|floatformat:0 }} DZD</span>
+        </div>
+        <a href="{% url 'orders:checkout' %}" class="btn btn-primary btn-full btn-lg">Proceed to Checkout</a>
+        <a href="{% url 'products:category_list' %}" class="btn btn-ghost btn-full" style="margin-top:10px;color:var(--text-muted);">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+
+  {% else %}
+  <div class="empty-state">
+    <i class="bi bi-bag" style="font-size:3rem;display:block;margin-bottom:1rem;color:var(--text-subtle);"></i>
+    <h3>Your cart is empty</h3>
+    <p style="margin-top:8px;color:var(--text-muted);">Start adding products to your cart.</p>
+    <a href="{% url 'products:category_list' %}" class="btn btn-primary" style="margin-top:24px;">Browse Products</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

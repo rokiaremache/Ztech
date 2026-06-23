@@ -1,0 +1,30 @@
+# ZTech Requirements
+# Install with: pip install -r requirements.txt
+
+# Core
+Django>=4.2,<5.0
+Pillow>=10.0                    # image handling
+
+# Environment variables
+python-decouple>=3.8            # .env support
+
+# Forms
+django-crispy-forms>=2.0
+crispy-bootstrap5>=0.7
+
+# Payments
+stripe>=7.0
+
+# AI Builder
+anthropic>=0.20
+
+# Email
+# (built into Django, just needs SMTP config)
+
+# Production
+gunicorn>=21.0                  # WSGI server
+whitenoise>=6.0                 # serve static files
+
+# Dev tools
+django-extensions>=3.2         # shell_plus, show_urls, etc.
+ipython>=8.0                    # better shell

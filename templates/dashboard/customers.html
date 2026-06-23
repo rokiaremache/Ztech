@@ -1,0 +1,30 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Customers — ZTech Dashboard{% endblock %}
+{% block page_title %}Customers{% endblock %}
+{% block content %}
+<div class="card reveal">
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th>Customer</th><th>Phone</th><th>Joined</th><th>Orders</th><th>Theme</th>
+      </tr></thead>
+      <tbody>
+        {% for customer in customers %}
+        <tr>
+          <td>
+            <div style="font-size:0.85rem;color:var(--text);">{{ customer.full_name }}</div>
+            <div style="font-size:0.75rem;color:var(--text-subtle);">{{ customer.email }}</div>
+          </td>
+          <td>{{ customer.phone|default:"—" }}</td>
+          <td>{{ customer.date_joined|date:"d M Y" }}</td>
+          <td><span style="font-weight:600;">{{ customer.order_count }}</span></td>
+          <td><span class="badge {% if customer.theme == 'men' %}badge-new{% else %}" style="background:var(--accent-glow);border:1px solid var(--border);{% endif %}">{{ customer.get_theme_display }}</span></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-muted);">No customers yet</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

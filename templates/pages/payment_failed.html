@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Payment Failed — ZTech{% endblock %}
+{% block content %}
+<div style="min-height:60vh;display:flex;align-items:center;justify-content:center;padding:60px 1rem;">
+  <div style="max-width:520px;width:100%;text-align:center;">
+    <div style="width:72px;height:72px;border-radius:50%;background:rgba(229,115,115,0.12);border:1px solid rgba(229,115,115,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:1.8rem;color:#e57373;">
+      <i class="bi bi-x-lg"></i>
+    </div>
+    <p class="section-label" style="margin-bottom:8px;">Payment Failed</p>
+    <h1 style="font-family:var(--font-heading);font-size:2.2rem;font-weight:300;margin-bottom:16px;">Your card is expired or invalid</h1>
+    <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:32px;">
+      Payment could not be completed. No charge was made and no order was created.<br>
+      Please check your card details and try again.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="{% url 'payments:payment' %}" class="btn btn-primary btn-lg">Try Again</a>
+      <a href="{% url 'cart:cart_detail' %}" class="btn btn-outline">Back to Cart</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

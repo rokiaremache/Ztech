@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}Checkout — ZTech{% endblock %}
+{% block content %}
+<div class="container" style="padding-bottom:80px;">
+  <div class="page-header">
+    <h1>Checkout</h1>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start;">
+    <div>
+      <div class="card">
+        <div class="card-header"><h3>Delivery Address</h3></div>
+        <div class="card-body">
+          {% if not request.user.is_authenticated %}
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" form="checkoutForm" class="form-control" required placeholder="For order confirmation">
+          </div>
+          {% endif %}
+          <form method="POST" id="checkoutForm">
+            {% csrf_token %}
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="full_name" class="form-control {% if form.full_name.errors %}error{% endif %}" value="{{ form.full_name.value|default:'' }}" required>
+                {% if form.full_name.errors %}<div class="form-error">{{ form.full_name.errors.0 }}</div>{% endif %}
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input type="tel" name="phone" class="form-control" value="{{ form.phone.value|default:'' }}" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Street Address</label>
+              <input type="text" name="street" class="form-control" value="{{ form.street.value|default:'' }}" required placeholder="Rue, N°, Cité...">
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">City</label>
+                <input type="text" name="city" class="form-control" value="{{ form.city.value|default:'' }}" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Wilaya</label>
+                <select name="wilaya" class="form-control" required>
+                  <option value="">Select wilaya...</option>
+                  {% for code, name in form.fields.wilaya.choices %}
+                  {% if code %}<option value="{{ code }}" {% if form.wilaya.value == code %}selected{% endif %}>{{ name }}</option>{% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Postal Code (optional)</label>
+              <input type="text" name="postal_code" class="form-control" value="{{ form.postal_code.value|default:'' }}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Order Notes (optional)</label>
+              <textarea name="customer_notes" class="form-control" rows="3" placeholder="Special instructions..."></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div style="position:sticky;top:88px;">
+      <div class="card">
+        <div class="card-header"><h3>Order Summary</h3></div>
+        <div class="card-body">
+          {% for item in cart.items.all %}
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:14px;">
+            <div style="width:50px;height:50px;flex-shrink:0;border-radius:var(--radius-sm);overflow:hidden;background:var(--bg-3);">
+              {% if item.product.main_image %}<img src="{{ item.product.main_image.url }}" style="width:100%;height:100%;object-fit:cover;">{% endif %}
+            </div>
+            <div style="flex:1;font-size:0.82rem;">
+              <div style="color:var(--text);font-weight:500;">{{ item.product.name }}</div>
+              <div style="color:var(--text-muted);">Qty: {{ item.quantity }}</div>
+            </div>
+            <div style="font-size:0.88rem;font-weight:600;">{{ item.total_price|floatformat:0 }} DZD</div>
+          </div>
+          {% endfor %}
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:0.88rem;color:var(--text-muted);">
+            <span>Subtotal</span><span>{{ cart.subtotal|floatformat:0 }} DZD</span>
+          </div>
+          {% if cart.discount_amount %}
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:0.88rem;color:#81c784;">
+            <span>Discount</span><span>-{{ cart.discount_amount|floatformat:0 }} DZD</span>
+          </div>
+          {% endif %}
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;font-size:1.1rem;font-weight:600;margin-bottom:24px;">
+            <span>Total</span><span>{{ cart.total|floatformat:0 }} DZD</span>
+          </div>
+          <button type="submit" form="checkoutForm" class="btn btn-primary btn-full btn-lg">Continue to Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

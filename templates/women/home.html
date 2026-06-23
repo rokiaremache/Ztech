@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Women's Picks — ZTech{% endblock %}
+{% block content %}
+<section style="position:relative;min-height:50vh;display:flex;align-items:center;overflow:hidden;">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline><source src="{% static 'assets/videos/hero-cute.mp4' %}" type="video/mp4"></video>
+    <div class="hero-video-overlay"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:2;">
+    <p class="section-label hero-animate-1">Curated for Her</p>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,6vw,5rem);font-weight:300;font-style:italic;color:var(--text);" class="hero-animate-2">Elegant &amp; Refined</h1>
+    <p style="color:var(--text-muted);margin-top:1rem;max-width:440px;" class="hero-animate-3">Beautifully designed setups that don't compromise on performance.</p>
+  </div>
+</section>
+<div class="container section">
+  {% if featured %}
+  <div class="section-header reveal"><p class="section-label">Featured</p><h2 class="section-title">Top Picks</h2></div>
+  <div class="product-grid" style="margin-bottom:60px;">
+    {% for product in featured %}
+    <div class="product-card reveal reveal-delay-{{ forloop.counter }}">
+      <div class="product-card-img">
+        {% if product.main_image %}<img src="{{ product.main_image.url }}" alt="{{ product.name }}" loading="lazy">{% endif %}
+        <div class="product-card-badges">{% if product.is_new %}<span class="badge badge-new">New</span>{% endif %}</div>
+        <div class="product-card-actions">
+          <form action="{% url 'cart:add_to_cart' product.id %}" method="POST" style="flex:1">{% csrf_token %}<input type="hidden" name="quantity" value="1"><button type="submit" class="btn btn-primary btn-sm btn-full">Add to Cart</button></form>
+        </div>
+      </div>
+      <div class="product-card-body">
+        {% if product.brand %}<div class="product-card-brand">{{ product.brand.name }}</div>{% endif %}
+        <a href="{{ product.get_absolute_url }}" class="product-card-name">{{ product.name }}</a>
+        <div class="product-card-price"><span class="price-current">{{ product.price|floatformat:0 }} DZD</span></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

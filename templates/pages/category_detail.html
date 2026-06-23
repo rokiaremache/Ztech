@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ category.name }} — ZTech{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      {% if category.parent %}
+      <a href="{{ category.parent.get_absolute_url }}">{{ category.parent.name }}</a>
+      <span class="breadcrumb-sep">/</span>
+      {% endif %}
+      <span>{{ category.name }}</span>
+    </div>
+    <h1>{{ category.name }}</h1>
+    <p style="color:var(--text-muted);margin-top:6px;">{{ total }} product{{ total|pluralize }} found</p>
+  </div>
+
+  {% if subcategories %}
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;">
+    <a href="{{ category.get_absolute_url }}" class="btn btn-outline btn-sm">All</a>
+    {% for sub in subcategories %}
+    <a href="{{ sub.get_absolute_url }}" class="btn btn-outline btn-sm">{{ sub.name }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="filter-bar">
+    <span class="filter-label">Sort by</span>
+    <select class="filter-select" onchange="window.location.href='?sort='+this.value">
+      <option value="newest" {% if sort == 'newest' %}selected{% endif %}>Newest</option>
+      <option value="price_asc" {% if sort == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+      <option value="price_desc" {% if sort == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+    </select>
+    <span class="result-count">{{ total }} results</span>
+  </div>
+
+  <div class="product-grid" style="margin-bottom:80px;">
+    {% for product in products %}
+    <div class="product-card reveal">
+      <div class="product-card-img">
+        {% if product.main_image %}<img src="{{ product.main_image.url }}" alt="{{ product.name }}" loading="lazy">{% endif %}
+        <div class="product-card-badges">
+          {% if product.is_new %}<span class="badge badge-new">New</span>{% endif %}
+          {% if product.discount_percent %}<span class="badge badge-sale">-{{ product.discount_percent }}%</span>{% endif %}
+          {% if not product.is_in_stock %}<span class="badge badge-out">Sold Out</span>{% endif %}
+        </div>
+        <div class="product-card-actions">
+          <form action="{% url 'cart:add_to_cart' product.id %}" method="POST" style="flex:1">
+            {% csrf_token %}<input type="hidden" name="quantity" value="1">
+            <button type="submit" class="btn btn-primary btn-sm btn-full" {% if not product.is_in_stock %}disabled{% endif %}>Add to Cart</button>
+          </form>
+        </div>
+      </div>
+      <div class="product-card-body">
+        {% if product.brand %}<div class="product-card-brand">{{ product.brand.name }}</div>{% endif %}
+        <a href="{{ product.get_absolute_url }}" class="product-card-name">{{ product.name }}</a>
+        <div class="product-card-price">
+          <span class="price-current">{{ product.price|floatformat:0 }} DZD</span>
+          {% if product.old_price %}<span class="price-old">{{ product.old_price|floatformat:0 }}</span>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="empty-state" style="grid-column:1/-1;">
+      <h3>No products in this category yet</h3>
+      <p style="margin-top:8px;">Check back soon.</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

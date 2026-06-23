@@ -1,0 +1,67 @@
+/* ============================================================
+   ZTECH — Design System Variables
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Italiana&display=swap');
+
+:root {
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+[data-theme="men"], :root {
+  --bg:           #080a0f;
+  --bg-2:         #0d1018;
+  --bg-3:         #141720;
+  --bg-card:      #111420;
+  --surface:      rgba(255,255,255,0.04);
+  --border:       rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.18);
+  --text:         #f0f2f8;
+  --text-muted:   #7a8099;
+  --text-subtle:  #4a5068;
+  --accent:       #c8a96e;
+  --accent-2:     #8b7fff;
+  --accent-3:     #4fc3f7;
+  --accent-glow:  rgba(200,169,110,0.15);
+  --nav-bg:       rgba(8,10,15,0.88);
+  --card-hover:   rgba(200,169,110,0.05);
+  --btn-primary:  #c8a96e;
+  --btn-text:     #080a0f;
+  --btn-hover:    #e0c28a;
+  --font-display: 'Italiana', serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --hero-overlay: linear-gradient(135deg, rgba(8,10,15,0.92) 0%, rgba(8,10,15,0.55) 50%, rgba(8,10,15,0.88) 100%);
+}
+
+[data-theme="women"] {
+  --bg:           #faf8f5;
+  --bg-2:         #f5f0eb;
+  --bg-3:         #ede8e1;
+  --bg-card:      #ffffff;
+  --surface:      rgba(0,0,0,0.025);
+  --border:       rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.2);
+  --text:         #1a1510;
+  --text-muted:   #7a6f65;
+  --text-subtle:  #b0a89e;
+  --accent:       #c17b5c;
+  --accent-2:     #9b6b8e;
+  --accent-3:     #c8a96e;
+  --accent-glow:  rgba(193,123,92,0.15);
+  --nav-bg:       rgba(250,248,245,0.92);
+  --card-hover:   rgba(193,123,92,0.04);
+  --btn-primary:  #c17b5c;
+  --btn-text:     #ffffff;
+  --btn-hover:    #a66449;
+  --font-display: 'Italiana', serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --hero-overlay: linear-gradient(135deg, rgba(250,248,245,0.88) 0%, rgba(250,248,245,0.45) 50%, rgba(250,248,245,0.82) 100%);
+}

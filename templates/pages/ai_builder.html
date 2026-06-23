@@ -1,0 +1,582 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}AI PC Builder — ZTech{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ── Tabs ── */
+.builder-tabs { display:flex; gap:8px; margin-bottom:40px; flex-wrap:wrap; }
+.builder-tab {
+  padding:10px 26px; border:1px solid var(--border); border-radius:var(--radius-xl);
+  font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--text-muted); cursor:pointer; transition:all var(--transition); background:none;
+}
+.builder-tab:hover { border-color:var(--border-hover); color:var(--text); }
+.builder-tab.active { background:var(--btn-primary); color:var(--btn-text); border-color:var(--btn-primary); }
+
+/* ── Profile selector ── */
+.profile-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:32px; }
+@media(max-width:900px){ .profile-grid{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:500px){ .profile-grid{grid-template-columns:repeat(2,1fr);} }
+.profile-card {
+  border:1px solid var(--border); border-radius:var(--radius-md);
+  padding:22px 12px; text-align:center; cursor:pointer;
+  transition:all var(--transition); user-select:none;
+}
+.profile-card:hover { border-color:var(--border-hover); transform:translateY(-2px); }
+.profile-card.active { border-color:var(--accent); background:var(--accent-glow); }
+.profile-icon { font-size:1.6rem; color:var(--text-subtle); margin-bottom:10px; transition:color var(--transition); }
+.profile-card.active .profile-icon { color:var(--accent); }
+.profile-name { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); }
+.profile-card.active .profile-name { color:var(--text); }
+
+/* ── Budget input ── */
+.budget-wrap { position:relative; max-width:320px; }
+.budget-wrap input { padding-right:60px; }
+.budget-unit { position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:0.78rem; color:var(--text-subtle); pointer-events:none; }
+
+/* ── Result build cards ── */
+.build-results { display:flex; flex-direction:column; gap:10px; }
+.build-slot {
+  display:flex; align-items:center; gap:16px;
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-md); padding:16px 18px;
+  transition:all var(--transition); animation:slideIn 0.35s ease both;
+}
+.build-slot:hover { border-color:var(--border-hover); }
+@keyframes slideIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+.slot-img { width:54px; height:54px; border-radius:var(--radius-sm); overflow:hidden; background:var(--bg-3); flex-shrink:0; }
+.slot-img img { width:100%; height:100%; object-fit:cover; }
+.slot-label { font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:3px; }
+.slot-name { font-size:0.9rem; color:var(--text); line-height:1.4; }
+.slot-price { margin-left:auto; font-weight:700; font-size:0.92rem; white-space:nowrap; }
+.slot-loading { background:var(--surface); border-radius:var(--radius-sm); height:16px; margin-bottom:4px; animation:shimmer 1.4s infinite; }
+
+/* ── Summary box ── */
+.build-summary {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius-md); padding:22px;
+  margin-top:20px;
+}
+.summary-row { display:flex; justify-content:space-between; align-items:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:8px; }
+.summary-row.total-row { font-size:1.1rem; font-weight:700; color:var(--text); border-top:1px solid var(--border); padding-top:14px; margin-top:8px; }
+.summary-row.discount-row { color:#81c784; }
+
+/* ── Warnings ── */
+.build-warnings { margin-top:14px; }
+.warning-item {
+  display:flex; align-items:flex-start; gap:8px;
+  padding:10px 14px; border-radius:var(--radius-sm);
+  font-size:0.82rem; margin-bottom:6px; line-height:1.6;
+}
+.warning-item.error { background:rgba(229,115,115,0.1); border:1px solid rgba(229,115,115,0.25); color:#ef9a9a; }
+.warning-item.warn  { background:rgba(255,160,0,0.1);   border:1px solid rgba(255,160,0,0.25);   color:#ffcc80; }
+.warning-item.ok    { background:rgba(129,199,132,0.1); border:1px solid rgba(129,199,132,0.25); color:#a5d6a7; }
+
+/* ── Calculator ── */
+.calc-layout { display:grid; grid-template-columns:1fr 300px; gap:32px; align-items:start; }
+@media(max-width:800px){ .calc-layout{grid-template-columns:1fr;} }
+.watt-bar  { height:6px; border-radius:var(--radius-xl); background:var(--surface); overflow:hidden; margin-top:8px; }
+.watt-fill { height:100%; border-radius:var(--radius-xl); background:var(--accent); transition:width 0.5s ease; }
+
+/* ── Compat badge ── */
+.compat-badge {
+  display:flex; align-items:center; gap:8px;
+  padding:12px 16px; border-radius:var(--radius-sm);
+  font-size:0.83rem; font-weight:600; margin-top:16px;
+}
+.compat-ok   { background:rgba(129,199,132,0.12); border:1px solid rgba(129,199,132,0.3); color:#81c784; }
+.compat-warn { background:rgba(255,160,0,0.12);   border:1px solid rgba(255,160,0,0.3);   color:#ffa000; }
+.compat-err  { background:rgba(229,115,115,0.12); border:1px solid rgba(229,115,115,0.3); color:#e57373; }
+
+/* ── Loading spinner ── */
+.spinner { display:inline-block; width:16px; height:16px; border:2px solid var(--btn-text); border-top-color:transparent; border-radius:50%; animation:spin 0.7s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg);} }
+@keyframes shimmer { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+.shimmer-block { background:linear-gradient(90deg,var(--surface) 25%,var(--border) 50%,var(--surface) 75%); background-size:400% 100%; animation:shimmer 1.4s infinite; border-radius:var(--radius-sm); }
+
+/* ── No products notice ── */
+.no-products-notice {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius-md); padding:28px 32px;
+  color:var(--text-muted); font-size:0.87rem; line-height:1.8;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-bottom:100px;">
+  <div class="page-header">
+    <p class="section-label">Configuration Studio</p>
+    <h1>PC Builder</h1>
+    <p style="color:var(--text-muted);margin-top:8px;max-width:520px;">Select your profile and budget to get an AI-generated build, or use the compatibility calculator to verify your components.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="builder-tabs">
+    <button class="builder-tab active" onclick="switchTab('ai', this)" id="tab-ai-btn">AI Build Suggester</button>
+    <button class="builder-tab" onclick="switchTab('calc', this)" id="tab-calc-btn">Compatibility Calculator</button>
+  </div>
+
+  <!-- ══════════════ AI TAB ══════════════ -->
+  <div id="tab-ai">
+
+    <!-- 1. Profile -->
+    <p class="section-label" style="margin-bottom:14px;">Step 1 — Choose your profile</p>
+    <div class="profile-grid">
+      <div class="profile-card active" data-profile="gamer" onclick="selectProfile(this)">
+        <div class="profile-icon"><i class="bi bi-controller"></i></div>
+        <div class="profile-name">Gamer</div>
+      </div>
+      <div class="profile-card" data-profile="student" onclick="selectProfile(this)">
+        <div class="profile-icon"><i class="bi bi-book"></i></div>
+        <div class="profile-name">Student</div>
+      </div>
+      <div class="profile-card" data-profile="creator" onclick="selectProfile(this)">
+        <div class="profile-icon"><i class="bi bi-palette"></i></div>
+        <div class="profile-name">Creator</div>
+      </div>
+      <div class="profile-card" data-profile="worker" onclick="selectProfile(this)">
+        <div class="profile-icon"><i class="bi bi-briefcase"></i></div>
+        <div class="profile-name">Professional</div>
+      </div>
+      <div class="profile-card" data-profile="streamer" onclick="selectProfile(this)">
+        <div class="profile-icon"><i class="bi bi-camera-video"></i></div>
+        <div class="profile-name">Streamer</div>
+      </div>
+    </div>
+
+    <!-- 2. Budget -->
+    <p class="section-label" style="margin-bottom:10px;">Step 2 — Set your budget</p>
+    <div class="budget-wrap" style="margin-bottom:32px;">
+      <input type="number" id="budgetInput" class="form-control" value="200000"
+             min="{{ min_budget }}" step="10000">
+      <span class="budget-unit">DZD</span>
+    </div>
+    <div style="font-size:0.75rem;color:var(--text-subtle);margin-top:-24px;margin-bottom:28px;">
+      Minimum budget: {{ min_budget|floatformat:0 }} DZD &mdash; Discount at 500,000 DZD (10% off)
+    </div>
+
+    <!-- 3. Generate -->
+    <button class="btn btn-primary btn-lg" onclick="generateBuild()" id="generateBtn">
+      <i class="bi bi-stars"></i>&nbsp; Generate Build
+    </button>
+
+    <!-- Results -->
+    <div id="buildResultWrap" style="margin-top:44px;display:none;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:24px;">
+        <div>
+          <p class="section-label" style="margin-bottom:4px;">Your Build</p>
+          <h2 style="font-family:var(--font-heading);font-size:1.8rem;font-weight:300;" id="buildLabel"></h2>
+          <p style="color:var(--text-muted);font-size:0.87rem;margin-top:4px;" id="buildDesc"></p>
+        </div>
+        <button class="btn btn-outline btn-sm" id="addAllBtn" onclick="addAllToCart()" style="display:none;">
+          Add All to Cart
+        </button>
+      </div>
+
+      <div class="build-results" id="buildSlots"></div>
+
+      <div id="buildSummary" class="build-summary" style="display:none;">
+        <div class="summary-row"><span>Subtotal</span><span id="sumSubtotal"></span></div>
+        <div class="summary-row discount-row" id="sumDiscountRow" style="display:none;"><span>Discount (10%)</span><span id="sumDiscount"></span></div>
+        <div class="summary-row total-row"><span>Total</span><span id="sumTotal" style="color:var(--accent);"></span></div>
+      </div>
+
+      <div id="buildWarnings" class="build-warnings"></div>
+    </div>
+
+    <!-- Empty state notice -->
+    {% if not cpus and not gpus %}
+    <div class="no-products-notice" style="margin-top:40px;">
+      <strong style="color:var(--text);">No components in database yet.</strong><br>
+      To use the AI Builder, go to <a href="/admin/products/product/" style="color:var(--accent);">Admin &rarr; Products</a>
+      and add products. Set the <strong>Component Type</strong> field to: CPU, GPU, RAM, Storage, Motherboard, PSU, Case, Cooler, Monitor, Keyboard or Mouse.
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- ══════════════ CALCULATOR TAB ══════════════ -->
+  <div id="tab-calc" style="display:none;">
+    <p style="color:var(--text-muted);margin-bottom:28px;max-width:560px;font-size:0.88rem;line-height:1.75;">
+      Select components to get a live total price, power draw estimate, and full compatibility analysis. Socket, RAM type and PSU wattage are all checked automatically.
+    </p>
+
+    <div class="calc-layout">
+
+      <!-- Selectors -->
+      <div>
+        {% if cpus %}
+        <div class="form-group">
+          <label class="form-label">CPU — Processor</label>
+          <select class="form-control calc-select" id="calc_cpu" data-slot="cpu" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in cpus %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="{{ p.socket }}" data-ram="{{ p.ram_type }}">{{ p.name }} — {{ p.price|floatformat:0 }} DZD{% if p.socket %} ({{ p.socket }}){% endif %}</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if gpus %}
+        <div class="form-group">
+          <label class="form-label">GPU — Graphics Card</label>
+          <select class="form-control calc-select" id="calc_gpu" data-slot="gpu" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in gpus %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="" data-ram="">{{ p.name }} — {{ p.price|floatformat:0 }} DZD</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if motherboards %}
+        <div class="form-group">
+          <label class="form-label">Motherboard</label>
+          <select class="form-control calc-select" id="calc_motherboard" data-slot="motherboard" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in motherboards %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="{{ p.socket }}" data-ram="{{ p.ram_type }}">{{ p.name }} — {{ p.price|floatformat:0 }} DZD{% if p.socket %} ({{ p.socket }}){% endif %}</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if rams %}
+        <div class="form-group">
+          <label class="form-label">RAM — Memory</label>
+          <select class="form-control calc-select" id="calc_ram" data-slot="ram" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in rams %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="" data-ram="{{ p.ram_type }}">{{ p.name }} — {{ p.price|floatformat:0 }} DZD{% if p.ram_type %} ({{ p.ram_type }}){% endif %}</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if psus %}
+        <div class="form-group">
+          <label class="form-label">PSU — Power Supply</label>
+          <select class="form-control calc-select" id="calc_psu" data-slot="psu" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in psus %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="" data-ram="">{{ p.name }} — {{ p.price|floatformat:0 }} DZD{% if p.wattage %} ({{ p.wattage }}W){% endif %}</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if cases %}
+        <div class="form-group">
+          <label class="form-label">Case</label>
+          <select class="form-control calc-select" id="calc_case" data-slot="case" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in cases %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="0" data-socket="" data-ram="">{{ p.name }} — {{ p.price|floatformat:0 }} DZD</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if storages %}
+        <div class="form-group">
+          <label class="form-label">Storage</label>
+          <select class="form-control calc-select" id="calc_storage" data-slot="storage" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in storages %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="" data-ram="">{{ p.name }} — {{ p.price|floatformat:0 }} DZD</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        {% if coolers %}
+        <div class="form-group">
+          <label class="form-label">CPU Cooler</label>
+          <select class="form-control calc-select" id="calc_cooler" data-slot="cooler" onchange="recalculate()">
+            <option value="">— Not selected —</option>
+            {% for p in coolers %}<option value="{{ p.id }}" data-price="{{ p.price }}" data-watts="{{ p.wattage|default:0 }}" data-socket="" data-ram="">{{ p.name }} — {{ p.price|floatformat:0 }} DZD</option>{% endfor %}
+          </select>
+        </div>
+        {% endif %}
+
+        {% if not cpus and not gpus and not motherboards and not rams and not psus %}
+        <div class="no-products-notice">
+          <strong style="color:var(--text);">No components available.</strong><br>
+          Add products in <a href="/admin/products/product/" style="color:var(--accent);">Admin &rarr; Products</a> and set Component Type.
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Live summary panel -->
+      <div style="position:sticky;top:88px;">
+        <div class="card">
+          <div class="card-header"><h3>Live Summary</h3></div>
+          <div class="card-body">
+            <div style="margin-bottom:20px;">
+              <div class="form-label" style="margin-bottom:4px;">Total Price</div>
+              <div id="calcTotal" style="font-size:2rem;font-weight:700;color:var(--accent);">0 DZD</div>
+              <div id="calcDiscountRow" style="font-size:0.82rem;color:#81c784;margin-top:4px;display:none;"></div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <div class="form-label" style="margin-bottom:6px;">Power Draw</div>
+              <div id="calcWatts" style="font-size:1rem;font-weight:600;margin-bottom:6px;">0 W</div>
+              <div class="watt-bar"><div class="watt-fill" id="wattFill" style="width:0%;"></div></div>
+              <div id="calcPsuNote" style="font-size:0.74rem;color:var(--text-subtle);margin-top:6px;"></div>
+            </div>
+
+            <div id="calcDiscountNotice" style="display:none;padding:12px;background:var(--accent-glow);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.78rem;color:var(--text-muted);margin-bottom:12px;"></div>
+
+            <div id="calcCompatResult"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   ZTech AI Builder — complete JS
+   ================================================================ */
+
+var currentBuild   = null;
+var selectedProfile = 'gamer';
+var DISCOUNT_THRESHOLD = 500000;
+
+/* ── Tab switching ── */
+function switchTab(tab, btn) {
+  document.querySelectorAll('.builder-tab').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('tab-ai').style.display   = (tab === 'ai')   ? 'block' : 'none';
+  document.getElementById('tab-calc').style.display = (tab === 'calc') ? 'block' : 'none';
+}
+
+/* ── Profile selection ── */
+function selectProfile(card) {
+  document.querySelectorAll('.profile-card').forEach(function(c){ c.classList.remove('active'); });
+  card.classList.add('active');
+  selectedProfile = card.dataset.profile;
+}
+
+/* ── Generate build ── */
+async function generateBuild() {
+  var budget = parseInt(document.getElementById('budgetInput').value) || 200000;
+  var btn    = document.getElementById('generateBtn');
+
+  if (budget < {{ min_budget }}) {
+    alert('Minimum budget is {{ min_budget|floatformat:0 }} DZD.');
+    return;
+  }
+
+  /* Loading state */
+  btn.innerHTML = '<span class="spinner"></span>&nbsp; Generating...';
+  btn.disabled  = true;
+
+  /* Show skeleton placeholders */
+  document.getElementById('buildResultWrap').style.display = 'block';
+  document.getElementById('buildLabel').textContent = 'Generating your build...';
+  document.getElementById('buildDesc').textContent  = '';
+  document.getElementById('buildSummary').style.display = 'none';
+  document.getElementById('addAllBtn').style.display    = 'none';
+  document.getElementById('buildWarnings').innerHTML    = '';
+
+  var slots = document.getElementById('buildSlots');
+  slots.innerHTML = ['CPU','GPU','Motherboard','RAM','Storage','PSU','Case','Cooler'].map(function(label) {
+    return '<div class="build-slot">' +
+      '<div class="slot-img shimmer-block"></div>' +
+      '<div style="flex:1"><div class="shimmer-block" style="height:12px;width:60%;margin-bottom:8px;"></div>' +
+      '<div class="shimmer-block" style="height:14px;width:85%;"></div></div>' +
+      '<div class="shimmer-block" style="height:14px;width:80px;"></div></div>';
+  }).join('');
+
+  try {
+    var r    = await fetch("{% url 'ai_builder:suggest' %}", {
+      method:  'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken': getCsrf()},
+      body:    JSON.stringify({profile: selectedProfile, budget: budget})
+    });
+    var data = await r.json();
+
+    if (!data.success) {
+      slots.innerHTML = '<div style="color:var(--text-muted);padding:20px 0;">' + (data.error || 'Could not generate build.') + '</div>';
+      document.getElementById('buildLabel').textContent = '';
+    } else {
+      currentBuild = data.suggestion;
+      renderBuild(data.suggestion);
+    }
+  } catch(e) {
+    slots.innerHTML = '<div style="color:#e57373;padding:20px 0;">Network error. Please try again.</div>';
+    document.getElementById('buildLabel').textContent = '';
+  }
+
+  btn.innerHTML = '<i class="bi bi-stars"></i>&nbsp; Generate Build';
+  btn.disabled  = false;
+}
+
+function renderBuild(s) {
+  document.getElementById('buildLabel').textContent = s.label;
+  document.getElementById('buildDesc').textContent  = s.description;
+
+  /* Component cards */
+  var slots = document.getElementById('buildSlots');
+  slots.innerHTML = '';
+  s.components.forEach(function(c, i) {
+    var card = document.createElement('div');
+    card.className = 'build-slot';
+    card.style.animationDelay = (i * 0.05) + 's';
+    card.innerHTML =
+      '<div class="slot-img"><img src="' + (c.image||'') + '" onerror="this.style.display=\'none\'"></div>' +
+      '<div style="flex:1">' +
+        '<div class="slot-label">' + c.slot + '</div>' +
+        '<div class="slot-name">' + c.name + '</div>' +
+      '</div>' +
+      '<div class="slot-price">' + Math.round(c.price).toLocaleString() + ' DZD</div>';
+    slots.appendChild(card);
+  });
+
+  /* Summary */
+  var subEl = document.getElementById('sumSubtotal');
+  var total = s.total || 0;
+  var disc  = s.discount || 0;
+  var final = s.final !== undefined ? s.final : (total - disc);
+
+  subEl.textContent = Math.round(total).toLocaleString() + ' DZD';
+  if (disc > 0) {
+    document.getElementById('sumDiscount').textContent = '-' + Math.round(disc).toLocaleString() + ' DZD';
+    document.getElementById('sumDiscountRow').style.display = 'flex';
+  } else {
+    document.getElementById('sumDiscountRow').style.display = 'none';
+  }
+  document.getElementById('sumTotal').textContent = Math.round(final).toLocaleString() + ' DZD';
+  document.getElementById('buildSummary').style.display = 'block';
+
+  /* Warnings */
+  var warnDiv = document.getElementById('buildWarnings');
+  warnDiv.innerHTML = '';
+  if (s.warnings && s.warnings.length) {
+    s.warnings.forEach(function(w) {
+      var el = document.createElement('div');
+      el.className = 'warning-item error';
+      el.innerHTML = '<i class="bi bi-exclamation-triangle-fill" style="flex-shrink:0;margin-top:1px;"></i> ' + w;
+      warnDiv.appendChild(el);
+    });
+  } else if (s.components.length > 0) {
+    var el = document.createElement('div');
+    el.className = 'warning-item ok';
+    el.innerHTML = '<i class="bi bi-check-circle-fill" style="flex-shrink:0;"></i> All components are compatible.';
+    warnDiv.appendChild(el);
+  }
+
+  if (s.components.length > 0) {
+    document.getElementById('addAllBtn').style.display = 'inline-flex';
+  }
+}
+
+/* ── Add all to cart ── */
+async function addAllToCart() {
+  if (!currentBuild || !currentBuild.components) return;
+  var btn = document.getElementById('addAllBtn');
+  btn.innerHTML = '<span class="spinner"></span>&nbsp; Adding...';
+  btn.disabled  = true;
+
+  for (var i = 0; i < currentBuild.components.length; i++) {
+    var c = currentBuild.components[i];
+    if (!c.id) continue;
+    try {
+      await fetch('/cart/add/' + c.id + '/', {
+        method:  'POST',
+        headers: {'X-CSRFToken': getCsrf()},
+        body:    new URLSearchParams({quantity: 1})
+      });
+    } catch(e) {}
+    await new Promise(function(r){ setTimeout(r, 80); });
+  }
+  window.location.href = "{% url 'cart:cart_detail' %}";
+}
+
+/* ── Compatibility Calculator ── */
+function recalculate() {
+  var selects = document.querySelectorAll('.calc-select');
+  var total = 0, watts = 0;
+  var selected = {};
+
+  selects.forEach(function(sel) {
+    if (!sel.value) return;
+    var opt   = sel.selectedOptions[0];
+    var price = parseFloat(opt.dataset.price) || 0;
+    var w     = parseInt(opt.dataset.watts)   || 0;
+    var slot  = sel.dataset.slot;
+    total += price;
+    watts += w;
+    selected[slot] = {
+      price:    price,
+      watts:    w,
+      socket:   opt.dataset.socket  || '',
+      ram_type: opt.dataset.ram     || '',
+    };
+  });
+
+  /* Price display */
+  document.getElementById('calcTotal').textContent = Math.round(total).toLocaleString() + ' DZD';
+
+  var discRow    = document.getElementById('calcDiscountRow');
+  var noticeEl   = document.getElementById('calcDiscountNotice');
+  if (total >= DISCOUNT_THRESHOLD) {
+    var d = Math.round(total * 0.10);
+    discRow.textContent = '-' + d.toLocaleString() + ' DZD (10% discount applied!)';
+    discRow.style.display = 'block';
+    noticeEl.style.display = 'none';
+  } else if (total > 0) {
+    discRow.style.display = 'none';
+    var missing = Math.round(DISCOUNT_THRESHOLD - total);
+    noticeEl.textContent = 'Add ' + missing.toLocaleString() + ' DZD more to unlock a 10% discount.';
+    noticeEl.style.display = 'block';
+  } else {
+    discRow.style.display  = 'none';
+    noticeEl.style.display = 'none';
+  }
+
+  /* Wattage */
+  document.getElementById('calcWatts').textContent = watts + ' W';
+  var pct = Math.min(100, Math.round((watts / 1000) * 100));
+  document.getElementById('wattFill').style.width = pct + '%';
+  var psuNote = document.getElementById('calcPsuNote');
+  if (watts > 0) {
+    var rec = Math.max(Math.ceil(watts * 1.20), 400);
+    psuNote.textContent = 'Recommended PSU: ' + rec + 'W minimum (20% headroom rule).';
+  } else {
+    psuNote.textContent = '';
+  }
+
+  /* Compatibility checks */
+  var issues = [];
+  var cpu  = selected['cpu'];
+  var mobo = selected['motherboard'];
+  var ram  = selected['ram'];
+  var psu  = selected['psu'];
+
+  if (cpu && mobo && cpu.socket && mobo.socket && cpu.socket !== mobo.socket) {
+    issues.push('Socket mismatch: CPU needs ' + cpu.socket + ' but Motherboard is ' + mobo.socket + '.');
+  }
+  if (ram && mobo && ram.ram_type && mobo.ram_type && ram.ram_type !== mobo.ram_type) {
+    issues.push('RAM type mismatch: RAM is ' + ram.ram_type + ' but Motherboard supports ' + mobo.ram_type + '.');
+  }
+  if (psu && psu.watts > 0) {
+    var systemWatts = watts - (psu.watts || 0);
+    var needed = Math.ceil(systemWatts * 1.20);
+    if (psu.watts < systemWatts) {
+      issues.push('PSU too weak: components draw ~' + systemWatts + 'W but PSU is only ' + psu.watts + 'W.');
+    } else if (psu.watts < needed) {
+      issues.push('PSU headroom low: recommended ' + needed + 'W (with 20% headroom), PSU is ' + psu.watts + 'W.');
+    }
+  }
+
+  var compatEl = document.getElementById('calcCompatResult');
+  var hasSelections = Object.keys(selected).length > 0;
+
+  if (!hasSelections) {
+    compatEl.innerHTML = '';
+  } else if (issues.length === 0) {
+    compatEl.innerHTML = '<div class="compat-badge compat-ok"><i class="bi bi-check-circle-fill"></i> All selected components are compatible.</div>';
+  } else {
+    var html = '<div class="compat-badge compat-err"><i class="bi bi-x-circle-fill"></i> Compatibility issues found</div>';
+    html += '<ul style="list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:6px;">';
+    issues.forEach(function(i) {
+      html += '<li style="font-size:0.8rem;color:#ef9a9a;display:flex;align-items:flex-start;gap:8px;"><i class="bi bi-exclamation-triangle-fill" style="flex-shrink:0;margin-top:1px;"></i>' + i + '</li>';
+    });
+    html += '</ul>';
+    compatEl.innerHTML = html;
+  }
+}
+
+/* ── CSRF helper ── */
+function getCsrf() {
+  var el = document.querySelector('[name=csrfmiddlewaretoken]');
+  if (el) return el.value;
+  var m = document.cookie.match(/csrftoken=([^;]+)/);
+  return m ? m[1] : '';
+}
+</script>
+{% endblock %}

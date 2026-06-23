@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Search — ZTech{% endblock %}
+{% block content %}
+<div class="container" style="padding-bottom:80px;">
+  <div class="page-header">
+    <h1>Search</h1>
+    <form method="GET" action="{% url 'products:search' %}" style="display:flex;gap:12px;margin-top:20px;max-width:500px;">
+      <input type="text" name="q" class="form-control" value="{{ query }}" placeholder="Search products..." autofocus>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  {% if query %}
+  <p style="color:var(--text-muted);margin-bottom:32px;">{{ total }} result{{ total|pluralize }} for "<strong style="color:var(--text);">{{ query }}</strong>"</p>
+  <div class="product-grid">
+    {% for product in products %}
+    <div class="product-card reveal">
+      <div class="product-card-img">
+        {% if product.main_image %}<img src="{{ product.main_image.url }}" alt="{{ product.name }}" loading="lazy">{% endif %}
+        <div class="product-card-badges">
+          {% if product.is_new %}<span class="badge badge-new">New</span>{% endif %}
+          {% if product.discount_percent %}<span class="badge badge-sale">-{{ product.discount_percent }}%</span>{% endif %}
+        </div>
+        <div class="product-card-actions">
+          <form action="{% url 'cart:add_to_cart' product.id %}" method="POST" style="flex:1">
+            {% csrf_token %}<input type="hidden" name="quantity" value="1">
+            <button type="submit" class="btn btn-primary btn-sm btn-full">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+      <div class="product-card-body">
+        {% if product.brand %}<div class="product-card-brand">{{ product.brand.name }}</div>{% endif %}
+        <a href="{{ product.get_absolute_url }}" class="product-card-name">{{ product.name }}</a>
+        <div class="product-card-price">
+          <span class="price-current">{{ product.price|floatformat:0 }} DZD</span>
+          {% if product.old_price %}<span class="price-old">{{ product.old_price|floatformat:0 }}</span>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="empty-state" style="grid-column:1/-1;"><h3>No results found</h3><p style="margin-top:8px;">Try different keywords.</p></div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
