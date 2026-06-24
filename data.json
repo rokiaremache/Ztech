@@ -1,0 +1,2647 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "1n30ymy0eo7ftbt9i2mvb7b1slevhy7p",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe9CHSF-a0HK9DkDWpZ1cBKBZOzKyt0jJBdJ-2bmHSLivpW4d17jksVVWHH53RLSi-sA-Yn10SS1uq1LkkORJ-3y3jK_b6f7d1Cwl1GH4AHUBG4mZqMh6WRdJqO8Rs9ZeeMVTF5DVkYHl8hZoy0y80xoSHy-yWc3kQ:1wGaTY:yVqVEwJejLJqFdls9P4E3_v5MuPs2FzPrLyzMZIMeg8",
+    "expire_date": "2026-05-09T10:43:04.823Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1vfnz3huvjwl6d68209ghqmupuvsjzue",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDSu6:dXh7eIoZFjaEJ2H0vBYOrVyBnKOukz-U3-Rcsz0Uy54",
+    "expire_date": "2026-04-30T20:01:34.573Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1zo2ujv1navb8ljnsxtjnv76jez5davk",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGln6XgklPWew_BfjAHKkOKki7g6RUkD7ZuZtKuV1qWntMqeR1UWBOv1umOkpbQf8yO0-aZraMo-od0UftOvbxPK6Hu7fQc29fmtyLhJ7AmCBUPyZMCLYYojQZ-fZoyXDEEwcMsUSkG2JzpbBiwBG9f4AAmo4wA:1wJ9h2:-dAFvJ4gv2FalaMDfozTaNeOkYNxifquwwRxIH7EJi8",
+    "expire_date": "2026-05-16T12:43:36.049Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "22n7t9u8bqpc1qnmnl6mmt5a45wccb9o",
+  "fields": {
+    "session_data": ".eJxVkEFvgzAMhf8K4roJNUCg62mdxtRWY5XQOGwX5CSmZA1kIqCprfrf50g9bDf7e89-si9hA_PUNbPDsdEqXIUsvP_LBMgjDl5QXzAcbCTtMI1aRN4S3VQXlVahebp5_y3owHU0LdM0l4pLxhSyrOVLKXLBkjaWUnBIueIikbFiWZw_gMzbTKikzdOkfeCITOS0VHYoj3aeGlBqROfC1SVsZ2OaAXqkiE89QFBhT9bvzg4e3cUs4RlLeRInnLibRsSJhPf1pqiCzfZjX7-tg6ouqC6LugrK9abc188-Tk8ncu62u-KV2h9t4AR-VJ91sJ_PdvZB1k1gGknn-98tF4uYqHaNwhZm46NewDgkiD1oQ_1ojxqikVo66PHgKT21D6_XX5vRfts:1wHpg0:JU0BdEeYo3pnaJTZRuZzT9eqmc-opq34jzebTTI_3KQ",
+    "expire_date": "2026-05-12T21:09:04.997Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4xojm4a36fp8wy1ymsfkbq1qcy191dxy",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe9CHSF-a0HK9DkDWpZ1cBKBZOzKyt0jJBdJ-2bmHSLivpW4d17jksVVWHH53RLSi-sA-Yn10SS1uq1LkkORJ-3y3jK_b6f7d1Cwl1GH4AHUBG4mZqMh6WRdJqO8Rs9ZeeMVTF5DVkYHl8hZoy0y80xoSHy-yWc3kQ:1wGaTv:8xs9iKQqDDnz6-TiXvwEJ7Fc4qHCjB8cPmN3W2sJ7ao",
+    "expire_date": "2026-05-09T10:43:27.128Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6o4a7e5tdi1o4jyty1npi919f0tka6t7",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wGaPC:XlwkAgzX8m4Lz-AcYwzTiFzAGKFAfU5fGih-lAUWJgQ",
+    "expire_date": "2026-05-09T10:38:34.931Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9k50ubm8asbcwtxysw3j3kk78oers156",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wGaPL:AovgEMGxgSzeCo_Pzwal3kkMKS4MncsgoLsmJxFzwd8",
+    "expire_date": "2026-05-09T10:38:43.852Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ck4wjcpcly26221joxkih4mngnv78hi0",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDSyJ:If8MPpPYvZa9ZZLnpkhueV-GpexF8IAebstMq9G5suE",
+    "expire_date": "2026-04-30T20:05:55.943Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gkg0vitp7out5zbcrbg319412zep3kar",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDOIb:TVyudLkgZBiS906Uf2Volav3Kaaulkh-va3FQbBQfdk",
+    "expire_date": "2026-04-30T15:06:33.396Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hsfn16yy685sq9fskgpc105pm4j6yv1b",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDOIO:dhM7jAhMb-WnZq4KLPFMIPtUZT0C7xrOBufT-OiScAQ",
+    "expire_date": "2026-04-30T15:06:20.251Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mbbi0t17frczxvzshfwtj0l50fik4gn0",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUV1SJ3AyM4ZKjt2SAGlUtNOiLtDpQ6w_vfef5mB1qUMa9N5GMWcDZjD78aUHlo3IHeqt8mmqS7zyHZT7E6bvU6iz8vu_h0UauVbU4QImR1mRvXpFJygBEfqVVXQU1TpBTFj33FmAcIOABLxMXccevP-AAjdOOg:1wAQPD:Uz0f2vXeV_9xH_U-RHA2iPyTiWVeikPrLrBtGc_Lw44",
+    "expire_date": "2026-04-22T10:45:07.442Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nmg9ukivt7mojwpf67mhw823r7zw7ugd",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDOIt:xmD8MwAmY6UxEBF4MpVl5tvF1iqpUQP1HYnasCvryPk",
+    "expire_date": "2026-04-30T15:06:51.554Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q3iue8t74in44h76emcny6savrrivsm1",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wGaPS:mD9fRcT3Y3kqcUv0xVeVoQiud_3XNKkkAyUQK32KCSA",
+    "expire_date": "2026-05-09T10:38:50.608Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "urp0tk6upu4j9uydivspmay4nuhi5cc0",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe9CHSF-a0HK9DkDWpZ1cBKBZOzKyt0jJBdJ-2bmHSLivpW4d17jksVVWHH53RLSi-sA-Yn10SS1uq1LkkORJ-3y3jK_b6f7d1Cwl1GH4AHUBG4mZqMh6WRdJqO8Rs9ZeeMVTF5DVkYHl8hZoy0y80xoSHy-yWc3kQ:1wHzO6:W2AWaSHEKZd3UTmHiMJS74fBlg-1RqetzvEy2YUaO48",
+    "expire_date": "2026-05-13T07:31:14.370Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vrva36jp9r8bru0l99fym4zevtn3pa3k",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDSuG:O884ZiMwxERff1DXII6PJ47YrS2hwXfwL_5gOxHk8TE",
+    "expire_date": "2026-04-30T20:01:44.195Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yjvovtvyabw1i3l92oljqj5szl2maobe",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDSwR:ODP7IzAUcB-O_8iBJXUQV1mFb8YfA_fIBHHHnTBl1P0",
+    "expire_date": "2026-04-30T20:03:59.074Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zh5pt7hyftrftvhkyba01zieiaidkw2k",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEBBhlcuvcbyPAYqRpISrtq_Hdt0oVu7znnbiLQutSwjjKHKYuLMOL0u0VKz9J2kB_U7l2m3pZ5inJX5EGHvPVcXtfD_TuoNOq3jgjeETvSnCmBxkSmWKWYUtRADr2NwAwRlTdcKDtIyOBRWYRyJvH-AAogOKk:1wDSyw:JEJApSuLfdtQses06Kq4BvhWO3jWqgkArq-PMAMIdXU",
+    "expire_date": "2026-04-30T20:06:34.194Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "🖥️ Composants PC",
+    "slug": "composants-pc",
+    "parent": null,
+    "gender": "all",
+    "description": "",
+    "image": "categories/d5063e2144555c2f674289d05df70661.jpg",
+    "is_active": true,
+    "created_at": "2026-04-04T22:20:43.300Z",
+    "updated_at": "2026-04-25T13:37:50.559Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "🖱️ Périphériques",
+    "slug": "peripheriques",
+    "parent": null,
+    "gender": "all",
+    "description": "",
+    "image": "categories/1875dbf2493053d23bcfc175e8b6c4a8.jpg",
+    "is_active": true,
+    "created_at": "2026-04-04T22:20:58.155Z",
+    "updated_at": "2026-04-25T13:34:55.295Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "💡 Accessoires Setup",
+    "slug": "accessoires-setup",
+    "parent": null,
+    "gender": "all",
+    "description": "",
+    "image": "categories/c687683fbf2b8fbbe5fda71e497ac854.jpg",
+    "is_active": true,
+    "created_at": "2026-04-04T22:21:06.044Z",
+    "updated_at": "2026-04-25T13:34:40.724Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "👾 Sélection Hommes",
+    "slug": "selection-hommes",
+    "parent": null,
+    "gender": "men",
+    "description": "",
+    "image": "categories/9a15622e8691f088ea19e63f93aa515f.jpg",
+    "is_active": true,
+    "created_at": "2026-04-04T22:21:14.245Z",
+    "updated_at": "2026-04-25T13:29:37.682Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "🎀 Sélection Femmes",
+    "slug": "selection-femmes",
+    "parent": null,
+    "gender": "women",
+    "description": "",
+    "image": "categories/7ea289507e254f437c3488a653a5488b.jpg",
+    "is_active": true,
+    "created_at": "2026-04-04T22:21:30.443Z",
+    "updated_at": "2026-04-25T13:23:22.354Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "CPUs",
+    "slug": "cpus",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:19:25.999Z",
+    "updated_at": "2026-04-04T23:19:25.999Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 7,
+  "fields": {
+    "name": "GPUs",
+    "slug": "gpus",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:19:44.556Z",
+    "updated_at": "2026-04-04T23:19:44.556Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 8,
+  "fields": {
+    "name": "RAM",
+    "slug": "ram",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:19:56.049Z",
+    "updated_at": "2026-04-04T23:19:56.049Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 9,
+  "fields": {
+    "name": "Stockage",
+    "slug": "stockage",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:20:22.112Z",
+    "updated_at": "2026-04-04T23:20:22.112Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 10,
+  "fields": {
+    "name": "Cartes Mères",
+    "slug": "cartes-meres",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:20:36.454Z",
+    "updated_at": "2026-04-04T23:20:36.454Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 11,
+  "fields": {
+    "name": "Boîtiers PC",
+    "slug": "boitiers-pc",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:20:45.586Z",
+    "updated_at": "2026-04-04T23:20:45.586Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 12,
+  "fields": {
+    "name": "Alimentations",
+    "slug": "alimentations",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:20:58.544Z",
+    "updated_at": "2026-04-04T23:20:58.544Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 13,
+  "fields": {
+    "name": "CPU Coolers",
+    "slug": "cpu-coolers",
+    "parent": 1,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:21:41.525Z",
+    "updated_at": "2026-04-04T23:21:41.526Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 14,
+  "fields": {
+    "name": "Écrans",
+    "slug": "ecrans",
+    "parent": 2,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:22:09.126Z",
+    "updated_at": "2026-04-04T23:22:09.126Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 15,
+  "fields": {
+    "name": "Claviers",
+    "slug": "claviers",
+    "parent": 2,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:22:21.428Z",
+    "updated_at": "2026-04-04T23:22:21.428Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 16,
+  "fields": {
+    "name": "Souris",
+    "slug": "souris",
+    "parent": 2,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:22:28.610Z",
+    "updated_at": "2026-04-04T23:22:28.610Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 17,
+  "fields": {
+    "name": "Casques",
+    "slug": "casques",
+    "parent": 2,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:22:37.449Z",
+    "updated_at": "2026-04-04T23:22:37.449Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 18,
+  "fields": {
+    "name": "Tapis de Souris",
+    "slug": "tapis-de-souris",
+    "parent": 3,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:23:06.694Z",
+    "updated_at": "2026-04-04T23:23:06.694Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 19,
+  "fields": {
+    "name": "Tapis de Bureau",
+    "slug": "tapis-de-bureau",
+    "parent": 3,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:23:18.603Z",
+    "updated_at": "2026-04-04T23:23:18.603Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 20,
+  "fields": {
+    "name": "Rubans LED",
+    "slug": "rubans-led",
+    "parent": 2,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:23:30.268Z",
+    "updated_at": "2026-04-04T23:23:30.268Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 21,
+  "fields": {
+    "name": "Gestion des Câbles",
+    "slug": "gestion-des-cables",
+    "parent": 2,
+    "gender": "all",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:23:43.791Z",
+    "updated_at": "2026-04-04T23:23:43.791Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 22,
+  "fields": {
+    "name": "Claviers Gaming",
+    "slug": "claviers-gaming",
+    "parent": 4,
+    "gender": "men",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:24:06.512Z",
+    "updated_at": "2026-04-04T23:24:06.512Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 23,
+  "fields": {
+    "name": "Setups Noirs",
+    "slug": "setups-noirs",
+    "parent": 4,
+    "gender": "men",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:24:20.019Z",
+    "updated_at": "2026-04-04T23:24:20.020Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 24,
+  "fields": {
+    "name": "Accessoires RGB",
+    "slug": "accessoires-rgb",
+    "parent": 4,
+    "gender": "men",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:24:31.544Z",
+    "updated_at": "2026-04-04T23:24:31.544Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 25,
+  "fields": {
+    "name": "Claviers Féminines",
+    "slug": "claviers-feminines",
+    "parent": 5,
+    "gender": "women",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:25:57.387Z",
+    "updated_at": "2026-04-04T23:25:57.387Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 26,
+  "fields": {
+    "name": "Setups Pastels",
+    "slug": "setups-pastels",
+    "parent": 5,
+    "gender": "women",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:26:14.520Z",
+    "updated_at": "2026-04-04T23:26:14.520Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 27,
+  "fields": {
+    "name": "Accessoires Kawaii",
+    "slug": "accessoires-kawaii",
+    "parent": 5,
+    "gender": "women",
+    "description": "",
+    "image": "",
+    "is_active": true,
+    "created_at": "2026-04-04T23:26:30.596Z",
+    "updated_at": "2026-04-04T23:26:30.596Z"
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 1,
+  "fields": {
+    "name": "Intel",
+    "slug": "intel",
+    "logo": "brands/intel.png",
+    "website": "https://www.intel.com/content/www/us/en/homepage.html",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 2,
+  "fields": {
+    "name": "AMD",
+    "slug": "amd",
+    "logo": "brands/images.png",
+    "website": "https://www.amd.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 3,
+  "fields": {
+    "name": "Nvidia",
+    "slug": "nvidia",
+    "logo": "brands/nvidia.jpg",
+    "website": "https://www.nvidia.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 4,
+  "fields": {
+    "name": "Corsair",
+    "slug": "corsair",
+    "logo": "brands/Corsair.png",
+    "website": "https://www.corsair.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 5,
+  "fields": {
+    "name": "Samsung",
+    "slug": "samsung",
+    "logo": "brands/Samsung.jpg",
+    "website": "https://www.samsung.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 6,
+  "fields": {
+    "name": "Seagate",
+    "slug": "seagate",
+    "logo": "brands/Seagate.jfif",
+    "website": "https://www.seagate.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 7,
+  "fields": {
+    "name": "Western Digital",
+    "slug": "western-digital",
+    "logo": "brands/Western_Digital.png",
+    "website": "https://www.westerndigital.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 8,
+  "fields": {
+    "name": "Logitech",
+    "slug": "logitech",
+    "logo": "brands/Logitech.jpg",
+    "website": "https://www.logitech.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 9,
+  "fields": {
+    "name": "Razer",
+    "slug": "razer",
+    "logo": "brands/Razer-Logo.png",
+    "website": "https://www.razer.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 10,
+  "fields": {
+    "name": "HyperX",
+    "slug": "hyperx",
+    "logo": "",
+    "website": "https://www.hyperx.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 11,
+  "fields": {
+    "name": "ASUS",
+    "slug": "asus",
+    "logo": "brands/ASUS.png",
+    "website": "https://www.asus.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 12,
+  "fields": {
+    "name": "MSI",
+    "slug": "msi",
+    "logo": "brands/msi.jpg",
+    "website": "https://www.msi.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 13,
+  "fields": {
+    "name": "Gigabyte",
+    "slug": "gigabyte",
+    "logo": "brands/Gigabyte.png",
+    "website": "https://www.gigabyte.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 14,
+  "fields": {
+    "name": "be quiet!",
+    "slug": "be-quiet",
+    "logo": "brands/yawaskot.png",
+    "website": "https://www.bequiet.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 15,
+  "fields": {
+    "name": "Cooler Master",
+    "slug": "cooler-master",
+    "logo": "brands/Cooler_Master.png",
+    "website": "https://www.coolermaster.com",
+    "is_active": true
+  }
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "AMD Ryzen 5 7600X",
+    "slug": "amd-ryzen-5-7600x",
+    "category": 6,
+    "brand": 2,
+    "gender": "all",
+    "component_type": "cpu",
+    "socket": "AM5",
+    "ram_type": "DDR5",
+    "price": "47000.00",
+    "old_price": "50000.00",
+    "discount_percent": 6,
+    "short_description": "Processeur 6 cœurs 12 threads, idéal gaming et bureautique",
+    "description": "Le Ryzen 5 7600X est le choix parfait pour les gamers exigeants. Avec ses 6 cœurs et 12 threads cadencés à 4.7GHz de base et 5.3GHz en boost, il offre des performances exceptionnelles dans les jeux et les applications créatives. Compatible socket AM5, il supporte la mémoire DDR5 pour une bande passante maximale.",
+    "main_image": "products/main/ryzen5-7600x.jpg",
+    "stock": 14,
+    "sku": "AMD-R5-7600X",
+    "is_active": true,
+    "is_featured": true,
+    "is_new": true,
+    "wattage": 105,
+    "created_at": "2026-04-05T23:26:29.302Z",
+    "updated_at": "2026-04-24T23:10:33.621Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "AMD Ryzen 7 7700X",
+    "slug": "amd-ryzen-7-7700x",
+    "category": 6,
+    "brand": 2,
+    "gender": "all",
+    "component_type": "cpu",
+    "socket": "AM5",
+    "ram_type": "DDR5",
+    "price": "70000.00",
+    "old_price": null,
+    "discount_percent": 0,
+    "short_description": "Processeur 8 cœurs 16 threads haute performance",
+    "description": "Le Ryzen 7 7700X repousse les limites du possible avec ses 8 cœurs et 16 threads. Fréquence boost jusqu'à 5.4GHz, idéal pour le streaming, la création de contenu et les jeux AAA les plus exigeants. Architecture Zen 4 de dernière génération.",
+    "main_image": "products/main/7215d166ea1c169496faa6d456fadd9e.jpg",
+    "stock": 10,
+    "sku": "AMD-R7-7700X",
+    "is_active": true,
+    "is_featured": true,
+    "is_new": true,
+    "wattage": 105,
+    "created_at": "2026-04-05T23:45:10.144Z",
+    "updated_at": "2026-04-24T23:10:33.634Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Intel Core i5-13600K",
+    "slug": "intel-core-i5-13600k",
+    "category": 6,
+    "brand": 1,
+    "gender": "all",
+    "component_type": "cpu",
+    "socket": "LGA1700",
+    "ram_type": "DDR4",
+    "price": "64000.00",
+    "old_price": "73000.00",
+    "discount_percent": 12,
+    "short_description": "Processeur hybride 14 cœurs, champion du gaming",
+    "description": "Dominez vos adversaires et accélérez vos rendus avec l'Intel Core i5-13600KF. Le processeur au rapport performance/prix imbattable pour le gaming intensif et la création de contenu.\r\n\r\nGrâce à son architecture hybride ultra-performante, le i5-13600KF offre une fluidité exceptionnelle dans les jeux AAA les plus gourmands et une rapidité de traitement impressionnante pour le montage vidéo, le streaming et la 3D.\r\n\r\nLes points forts du i5-13600KF :\r\n\r\nPuissance Multitâche : 14 Cœurs (6 Performance-cores + 8 Efficient-cores) et 20 Threads pour gérer plusieurs applications lourdes simultanément.\r\n\r\nVitesse de Pointe : Fréquence Turbo boost atteignant les 5.1 GHz.\r\n\r\nCapacité d'Overclocking : Modèle de série \"K\" débloqué pour les utilisateurs souhaitant repousser les limites de performance.\r\n\r\nTechnologies de pointe : Support de la mémoire DDR5 et DDR4, ainsi que du PCIe 5.0.\r\n\r\nLe Choix des Gamers : Souvent considéré comme le meilleur processeur pour le gaming pur grâce à sa réactivité exemplaire.\r\n\r\nFiche Technique :\r\n\r\nModèle : Intel Core i5-13600KF.\r\n\r\nNombre de Cœurs : 14.\r\n\r\nNombre de Threads : 20.\r\n\r\nCache : 24 Mo Intel® Smart Cache.\r\n\r\nFréquence : Jusqu'à 5.1 GHz en Turbo.\r\n\r\nSocket : LGA 1700 (Compatible cartes mères séries 600 et 700).\r\n\r\nNote : Version \"F\" (Nécessite une carte graphique dédiée).\r\n\r\nInfos Pratiques\r\nÉtat : Produit Neuf, sous emballage d'origine (Boite Scellée).\r\n\r\nGarantie : 12 mois.\r\n\r\nLivraison : Expédition rapide et sécurisée vers les 69 wilayas.\r\n\r\nPrix : 64000 DA.\r\n\r\nAméliorez votre PC avec un processeur de légende ! Contactez OCEANIC COMPUTER pour commander.\r\n\r\n\r\nIntel Core i5-13600KF, i5 13ème génération, Processeur Gaming Algérie, CPU Overclocking, i5-13600KF prix, Matériel informatique Ouedkniss, LGA 1700, Montage PC Gamer performance.",
+    "main_image": "products/main/LD0005982183.jpg",
+    "stock": 12,
+    "sku": "INT-I5-13600K",
+    "is_active": true,
+    "is_featured": false,
+    "is_new": true,
+    "wattage": 125,
+    "created_at": "2026-04-05T23:56:32.097Z",
+    "updated_at": "2026-04-24T23:10:33.648Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Intel Core i7-13700K",
+    "slug": "intel-core-i7-13700k",
+    "category": 6,
+    "brand": 1,
+    "gender": "all",
+    "component_type": "cpu",
+    "socket": "LGA1700",
+    "ram_type": "DDR4",
+    "price": "85900.00",
+    "old_price": "87000.00",
+    "discount_percent": 1,
+    "short_description": "16 cœurs de puissance brute pour gaming et création",
+    "description": "L'Intel Core i7-13700K est une bête de performance avec ses 16 cœurs et 24 threads. Fréquence boost jusqu'à 5.4GHz, parfait pour le montage vidéo 4K, le streaming et les jeux les plus gourmands du marché.",
+    "main_image": "products/main/INT-I7-13700K.jpg",
+    "stock": 8,
+    "sku": "INT-I7-13700K",
+    "is_active": true,
+    "is_featured": false,
+    "is_new": true,
+    "wattage": 125,
+    "created_at": "2026-04-06T22:14:30.852Z",
+    "updated_at": "2026-04-24T23:10:33.661Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Nvidia RTX 4060",
+    "slug": "nvidia-rtx-4060",
+    "category": 7,
+    "brand": 3,
+    "gender": "all",
+    "component_type": "gpu",
+    "socket": "",
+    "ram_type": "",
+    "price": "55000.00",
+    "old_price": "64000.00",
+    "discount_percent": 14,
+    "short_description": "Carte graphique 1080p/1440p avec Ray Tracing et DLSS 3Carte graphique 1080p/1440p avec Ray Tracing et DLSS 3",
+    "description": "La RTX 4060 est la carte idéale pour jouer en 1080p et 1440p avec tous les détails au maximum. Profitez du Ray Tracing en temps réel et de la technologie DLSS 3 pour des FPS maximaux. 8GB GDDR6, architecture Ada Lovelace de dernière génération.",
+    "main_image": "products/main/Nvidia_RTX_4060.jpg",
+    "stock": 20,
+    "sku": "NV-RTX4060",
+    "is_active": true,
+    "is_featured": true,
+    "is_new": true,
+    "wattage": 115,
+    "created_at": "2026-04-06T22:36:10.958Z",
+    "updated_at": "2026-04-24T23:10:33.672Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Logitech G715 Aurora Collection",
+    "slug": "logitech-g715-aurora-collection",
+    "category": 25,
+    "brand": 8,
+    "gender": "women",
+    "component_type": "other",
+    "socket": "",
+    "ram_type": "",
+    "price": "49000.00",
+    "old_price": "54000.00",
+    "discount_percent": 9,
+    "short_description": "Clavier sans fil Aurora, design pastel exclusif",
+    "description": "Le Logitech G715 Aurora Collection redéfinit l'esthétique gaming féminine. Design blanc nacré avec touches pastel, switches GX Brown tactiles silencieux, rétroéclairage LIGHTSYNC RGB aux couleurs douces, connexion sans fil LIGHTSPEED ultra-rapide. Le clavier le plus élégant du marché.",
+    "main_image": "products/main/c965dadaeb55974bfdae19caae228c98.jpg",
+    "stock": 2,
+    "sku": "LOG-G715-AURORA",
+    "is_active": true,
+    "is_featured": true,
+    "is_new": true,
+    "wattage": 0,
+    "created_at": "2026-04-06T22:46:47.045Z",
+    "updated_at": "2026-04-24T23:10:33.683Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Samsung M8 Smart Monitor",
+    "slug": "samsung-m8-smart-monitor",
+    "category": 5,
+    "brand": 5,
+    "gender": "women",
+    "component_type": "other",
+    "socket": "",
+    "ram_type": "",
+    "price": "200000.00",
+    "old_price": "220000.00",
+    "discount_percent": 9,
+    "short_description": "Stylish 32-inch 4K smart monitor with modern design, built-in apps, and premium display quality. Perfect for work, streaming, and aesthetic setups.",
+    "description": "The Samsung M8 Smart Monitor combines elegant design with smart functionality in one premium display. Featuring a 32-inch UHD 4K screen, it delivers sharp visuals, vibrant colors, and excellent clarity for productivity, entertainment, and everyday use.\r\n\r\nWith built-in streaming apps, wireless connectivity, and smart features, it works as both a monitor and entertainment hub without needing a PC. Its slim minimalist look makes it ideal for modern desk spaces, while stylish color options like pink add a unique and fashionable touch.\r\n\r\nPerfect for students, professionals, creators, and anyone wanting a clean, girly, or premium setup.",
+    "main_image": "products/main/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "stock": 5,
+    "sku": "SM-M8-32",
+    "is_active": true,
+    "is_featured": true,
+    "is_new": true,
+    "wattage": null,
+    "created_at": "2026-04-28T20:52:16.264Z",
+    "updated_at": "2026-04-28T20:52:16.264Z",
+    "compatible_with": []
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 1,
+  "fields": {
+    "product": 3,
+    "image": "products/gallery/INTEL-CORE-I5-13600K.jpg",
+    "alt_text": "",
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 2,
+  "fields": {
+    "product": 3,
+    "image": "products/gallery/title.jpg",
+    "alt_text": "",
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 3,
+  "fields": {
+    "product": 6,
+    "image": "products/gallery/g715.avif",
+    "alt_text": "",
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 4,
+  "fields": {
+    "product": 7,
+    "image": "products/gallery/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "alt_text": "",
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 5,
+  "fields": {
+    "product": 7,
+    "image": "products/gallery/d977a9d686344edac8d732c4e108ac11.jpg",
+    "alt_text": "",
+    "order": 0
+  }
+},
+{
+  "model": "accounts.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$AlB8RrmgeNXM8fazgYJrzC$5mqkTJKzXi629KV/+mgzRXotcKEBypTruhrPuDZBSiQ=",
+    "last_login": "2026-05-02T12:43:36.039Z",
+    "is_superuser": true,
+    "email": "rokia.remache@gmail.com",
+    "first_name": "Rokia",
+    "last_name": "Remache",
+    "phone": "",
+    "avatar": "",
+    "theme": "men",
+    "subscribed_to_newsletter": false,
+    "is_active": true,
+    "is_staff": true,
+    "date_joined": "2026-04-04T21:26:19.049Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$F0lWaze5E6MTAeAd1Ti1aq$wxgaCDDfD4+MQwbaeMfVs6aqQ7OBmKsIBJhQ7l8KEmw=",
+    "last_login": "2026-04-29T09:42:14.274Z",
+    "is_superuser": false,
+    "email": "zinaremdz@gmail.com",
+    "first_name": "Zina",
+    "last_name": "Rem",
+    "phone": "",
+    "avatar": "",
+    "theme": "men",
+    "subscribed_to_newsletter": false,
+    "is_active": true,
+    "is_staff": false,
+    "date_joined": "2026-04-07T23:31:15.461Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$EL8EFpN07soholFvmGK7Z1$zqoWNyORjmvS+fQP7RRPFrk2Fh6piPS31QihS62PCWE=",
+    "last_login": "2026-04-29T07:31:14.368Z",
+    "is_superuser": true,
+    "email": "test@ztech.dz",
+    "first_name": "Admin",
+    "last_name": "ZTech",
+    "phone": "",
+    "avatar": "",
+    "theme": "men",
+    "subscribed_to_newsletter": false,
+    "is_active": true,
+    "is_staff": true,
+    "date_joined": "2026-04-16T15:06:19.382Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$l9vFxYvjiYlxsSQyTSCdlZ$WVUtn0zKEC8IlcgNqR+OPz6l6QAitGtDzIENf0G5UnE=",
+    "last_login": "2026-04-25T13:49:33.138Z",
+    "is_superuser": false,
+    "email": "rokiaaremache@gmail.com",
+    "first_name": "ziii",
+    "last_name": "Rem",
+    "phone": "+213659866523",
+    "avatar": "",
+    "theme": "men",
+    "subscribed_to_newsletter": false,
+    "is_active": true,
+    "is_staff": false,
+    "date_joined": "2026-04-17T16:30:44.513Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$oIPPtSbGguP0NMhTGO79bg$5wzoohAhUKsPmJTEN7eoODS+K/AaH7bbyssOo7BFkQU=",
+    "last_login": "2026-05-02T12:34:54.380Z",
+    "is_superuser": false,
+    "email": "belkisbourourou@gmail.com",
+    "first_name": "belkis",
+    "last_name": "hh",
+    "phone": "",
+    "avatar": "",
+    "theme": "men",
+    "subscribed_to_newsletter": false,
+    "is_active": true,
+    "is_staff": false,
+    "date_joined": "2026-05-02T12:34:53.550Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.address",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "full_name": "Zina Rem",
+    "phone": "+213561366726",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "16",
+    "postal_code": "18002",
+    "is_default": true,
+    "created_at": "2026-04-29T09:32:58.914Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "session_key": null,
+    "created_at": "2026-04-07T23:09:01.672Z",
+    "updated_at": "2026-04-07T23:09:01.672Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "test@ztech.dz"
+    ],
+    "session_key": null,
+    "created_at": "2026-04-16T15:06:33.573Z",
+    "updated_at": "2026-04-16T15:06:33.573Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 5,
+  "fields": {
+    "user": null,
+    "session_key": "xgsk9815u1v7fja45bhfpmsbrpibwctd",
+    "created_at": "2026-04-16T20:53:17.785Z",
+    "updated_at": "2026-04-16T20:53:17.785Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 7,
+  "fields": {
+    "user": null,
+    "session_key": "orvqnuadp44ciis25wskji2ytji1hqzl",
+    "created_at": "2026-04-18T18:14:55.819Z",
+    "updated_at": "2026-04-18T18:14:55.819Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "rokiaaremache@gmail.com"
+    ],
+    "session_key": null,
+    "created_at": "2026-04-25T14:50:08.338Z",
+    "updated_at": "2026-04-25T14:50:08.338Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 15,
+  "fields": {
+    "user": null,
+    "session_key": "e4soyq8kw6t6xoi8j6ynyq3spxze7fz2",
+    "created_at": "2026-04-29T09:44:44.871Z",
+    "updated_at": "2026-04-29T09:44:44.871Z"
+  }
+},
+{
+  "model": "cart.cartitem",
+  "pk": 19,
+  "fields": {
+    "cart": 1,
+    "product": 7,
+    "quantity": 2,
+    "added_at": "2026-04-29T09:33:08.237Z"
+  }
+},
+{
+  "model": "cart.cartitem",
+  "pk": 21,
+  "fields": {
+    "cart": 15,
+    "product": 6,
+    "quantity": 1,
+    "added_at": "2026-04-29T09:44:44.891Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "reference": "ZT-A6D8AD",
+    "user": [
+      "test@ztech.dz"
+    ],
+    "full_name": "Test User",
+    "email": "test@ztech.dz",
+    "phone": "0555123456",
+    "street": "Rue Test 12",
+    "city": "Alger",
+    "wilaya": "Alger",
+    "postal_code": "16000",
+    "subtotal": "98000.00",
+    "discount_amount": "0.00",
+    "total": "98000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-04-16T20:01:52.019Z",
+    "updated_at": "2026-04-16T20:01:52.034Z",
+    "paid_at": "2026-04-16T20:01:52.034Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "reference": "ZT-47F53E",
+    "user": [
+      "zinaremdz@gmail.com"
+    ],
+    "full_name": "Zina Rem",
+    "email": "zinaremdz@gmail.com",
+    "phone": "+213561453235",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Alger",
+    "postal_code": "18002",
+    "subtotal": "47000.00",
+    "discount_amount": "0.00",
+    "total": "47000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-04-25T12:40:08.524Z",
+    "updated_at": "2026-04-25T12:40:08.524Z",
+    "paid_at": "2026-04-25T12:40:08.564Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "reference": "ZT-FAEC27",
+    "user": [
+      "zinaremdz@gmail.com"
+    ],
+    "full_name": "Zina Rem",
+    "email": "zinaremdz@gmail.com",
+    "phone": "+213561453235",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Alger",
+    "postal_code": "18002",
+    "subtotal": "49000.00",
+    "discount_amount": "0.00",
+    "total": "49000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-04-25T12:43:36.884Z",
+    "updated_at": "2026-04-25T12:43:36.884Z",
+    "paid_at": "2026-04-25T12:43:36.930Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "reference": "ZT-4C5B61",
+    "user": [
+      "zinaremdz@gmail.com"
+    ],
+    "full_name": "Zina Rem",
+    "email": "zinaremdz@gmail.com",
+    "phone": "+213561453235",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Béjaïa",
+    "postal_code": "18002",
+    "subtotal": "49000.00",
+    "discount_amount": "0.00",
+    "total": "49000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-04-25T12:56:58.305Z",
+    "updated_at": "2026-04-25T12:56:58.305Z",
+    "paid_at": "2026-04-25T12:56:58.342Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "reference": "ZT-0D0A4D",
+    "user": [
+      "rokiaaremache@gmail.com"
+    ],
+    "full_name": "rokia remache",
+    "email": "rokiaaremache@gmail.com",
+    "phone": "+213561377426",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Tlemcen",
+    "postal_code": "18002",
+    "subtotal": "98000.00",
+    "discount_amount": "0.00",
+    "total": "98000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-04-25T13:50:52.989Z",
+    "updated_at": "2026-04-25T13:50:52.989Z",
+    "paid_at": "2026-04-25T13:50:53.039Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 6,
+  "fields": {
+    "reference": "ZT-6591D8",
+    "user": null,
+    "full_name": "Zina Rem",
+    "email": "zinaremdz@gmail.com",
+    "phone": "+213561366726",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Béjaïa",
+    "postal_code": "18002",
+    "subtotal": "200000.00",
+    "discount_amount": "0.00",
+    "total": "200000.00",
+    "status": "cancelled",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "yw cbn annulleeeeer",
+    "created_at": "2026-04-29T07:41:00.465Z",
+    "updated_at": "2026-04-29T07:41:00.465Z",
+    "paid_at": "2026-04-29T07:41:00.522Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": "2026-04-29T08:25:26.855Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 7,
+  "fields": {
+    "reference": "ZT-C7CBE6",
+    "user": [
+      "zinaremdz@gmail.com"
+    ],
+    "full_name": "Zina Rem",
+    "email": "zinaremdz@gmail.com",
+    "phone": "+213561377426",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Tiaret",
+    "postal_code": "18002",
+    "subtotal": "200000.00",
+    "discount_amount": "0.00",
+    "total": "200000.00",
+    "status": "cancelled",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "delay of shipping you will refunded",
+    "created_at": "2026-04-29T09:17:13.324Z",
+    "updated_at": "2026-04-29T09:17:13.324Z",
+    "paid_at": "2026-04-29T09:17:13.370Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": "2026-04-29T09:41:03.379Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 8,
+  "fields": {
+    "reference": "ZT-4D2836",
+    "user": [
+      "zinaremdz@gmail.com"
+    ],
+    "full_name": "Zina Rem",
+    "email": "zinaremdz@gmail.com",
+    "phone": "+213561377426",
+    "street": "TAHER HIYOUNA RUE HIMEUR MAHMOUD",
+    "city": "JIJEL",
+    "wilaya": "Jijel",
+    "postal_code": "18002",
+    "subtotal": "200000.00",
+    "discount_amount": "0.00",
+    "total": "200000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-04-29T09:43:51.278Z",
+    "updated_at": "2026-04-29T09:43:51.278Z",
+    "paid_at": "2026-04-29T09:43:51.349Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 9,
+  "fields": {
+    "reference": "ZT-F861C8",
+    "user": null,
+    "full_name": "belkis hh",
+    "email": "belkisbourourou@gmail.com",
+    "phone": "+213 775910060",
+    "street": "tassoust jijel",
+    "city": "JIJEL",
+    "wilaya": "Jijel",
+    "postal_code": "18002",
+    "subtotal": "200000.00",
+    "discount_amount": "0.00",
+    "total": "200000.00",
+    "status": "paid",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "",
+    "created_at": "2026-05-02T12:33:00.502Z",
+    "updated_at": "2026-05-02T12:33:00.502Z",
+    "paid_at": "2026-05-02T12:33:00.543Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": null
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 10,
+  "fields": {
+    "reference": "ZT-2F63B2",
+    "user": [
+      "belkisbourourou@gmail.com"
+    ],
+    "full_name": "belkis hh",
+    "email": "belkisbourourou@gmail.com",
+    "phone": "+213 775910060",
+    "street": "TESSOUST",
+    "city": "JIJEL",
+    "wilaya": "Jijel",
+    "postal_code": "18002",
+    "subtotal": "200000.00",
+    "discount_amount": "0.00",
+    "total": "200000.00",
+    "status": "cancelled",
+    "customer_notes": "",
+    "admin_notes": "",
+    "cancellation_reason": "yaw roh n",
+    "created_at": "2026-05-02T12:35:56.800Z",
+    "updated_at": "2026-05-02T12:35:56.800Z",
+    "paid_at": "2026-05-02T12:35:56.853Z",
+    "shipped_at": null,
+    "delivered_at": null,
+    "cancelled_at": "2026-05-02T12:44:07.642Z"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 6,
+    "product_name": "Logitech G715 Aurora Collection",
+    "product_image": "products/main/c965dadaeb55974bfdae19caae228c98.jpg",
+    "unit_price": "49000.00",
+    "quantity": 2
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "product": 1,
+    "product_name": "AMD Ryzen 5 7600X",
+    "product_image": "products/main/ryzen5-7600x.jpg",
+    "unit_price": "47000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 3,
+    "product": 6,
+    "product_name": "Logitech G715 Aurora Collection",
+    "product_image": "products/main/c965dadaeb55974bfdae19caae228c98.jpg",
+    "unit_price": "49000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 4,
+    "product": 6,
+    "product_name": "Logitech G715 Aurora Collection",
+    "product_image": "products/main/c965dadaeb55974bfdae19caae228c98.jpg",
+    "unit_price": "49000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 5,
+    "product": 6,
+    "product_name": "Logitech G715 Aurora Collection",
+    "product_image": "products/main/c965dadaeb55974bfdae19caae228c98.jpg",
+    "unit_price": "49000.00",
+    "quantity": 2
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 6,
+    "product": 7,
+    "product_name": "Samsung M8 Smart Monitor",
+    "product_image": "products/main/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "unit_price": "200000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 7,
+    "product": 7,
+    "product_name": "Samsung M8 Smart Monitor",
+    "product_image": "products/main/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "unit_price": "200000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 8,
+    "product": 7,
+    "product_name": "Samsung M8 Smart Monitor",
+    "product_image": "products/main/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "unit_price": "200000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 9,
+    "product": 7,
+    "product_name": "Samsung M8 Smart Monitor",
+    "product_image": "products/main/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "unit_price": "200000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 10,
+    "product": 7,
+    "product_name": "Samsung M8 Smart Monitor",
+    "product_image": "products/main/6c51e5eb4749f2fb97e6b347de7b7c40.jpg",
+    "unit_price": "200000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "newsletter.subscriber",
+  "pk": 1,
+  "fields": {
+    "email": "zinaremdz@gmail.com",
+    "created_at": "2026-04-17T01:25:23.532Z",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productreview",
+  "pk": 1,
+  "fields": {
+    "product": 1,
+    "user": [
+      "test@ztech.dz"
+    ],
+    "rating": 5,
+    "title": "Excellent CPU",
+    "body": "Fast shipping and exactly as described. Very happy with this purchase.",
+    "image": "",
+    "created_at": "2026-04-25T10:38:50.663Z",
+    "is_approved": true
+  }
+},
+{
+  "model": "products.productreview",
+  "pk": 2,
+  "fields": {
+    "product": 5,
+    "user": [
+      "zinaremdz@gmail.com"
+    ],
+    "rating": 4,
+    "title": "hayel",
+    "body": "wlh ghir wselni bien , bonne continuation",
+    "image": "reviews/Nvidia_RTX_4060.jpg",
+    "created_at": "2026-04-25T12:02:49.137Z",
+    "is_approved": true
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-04-04T21:37:20.266Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "1",
+    "object_repr": "Intel",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-04-04T21:42:09.245Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "2",
+    "object_repr": "AMD",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-04-04T21:43:02.335Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "3",
+    "object_repr": "Nvidia",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-04-04T21:43:55.628Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "4",
+    "object_repr": "Corsair",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-04-04T21:45:03.788Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "5",
+    "object_repr": "Samsung",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-04-04T21:46:11.390Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "6",
+    "object_repr": "Seagate",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-04-04T21:47:00.432Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "7",
+    "object_repr": "Western Digital",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-04-04T21:47:54.828Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "8",
+    "object_repr": "Logitech",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-04-04T21:50:23.467Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "9",
+    "object_repr": "Razer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-04-04T21:59:28.718Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "10",
+    "object_repr": "HyperX",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-04-04T22:00:22.886Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "11",
+    "object_repr": "ASUS",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-04-04T22:01:49.221Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "12",
+    "object_repr": "MSI",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-04-04T22:02:16.116Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "13",
+    "object_repr": "Gigabyte",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-04-04T22:03:45.410Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "14",
+    "object_repr": "be quiet!",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-04-04T22:04:43.771Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "brand"
+    ],
+    "object_id": "15",
+    "object_repr": "Cooler Master",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-04-04T22:20:43.304Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "🖥️ Composants PC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-04-04T22:20:58.159Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "🖱️ Périphériques",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-04-04T22:21:06.053Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "💡 Accessoires Setup",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-04-04T22:21:14.250Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "👾 Sélection Hommes",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-04-04T22:21:30.445Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "🎀 Sélection Femmes",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-04-04T22:21:37.065Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "👾 Sélection Hommes",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Gender\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-04-04T23:19:26.005Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "6",
+    "object_repr": "🖥️ Composants PC → CPUs",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-04-04T23:19:44.560Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "7",
+    "object_repr": "🖥️ Composants PC → GPUs",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-04-04T23:19:56.051Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "8",
+    "object_repr": "🖥️ Composants PC → RAM",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-04-04T23:20:22.115Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "9",
+    "object_repr": "🖥️ Composants PC → Stockage",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-04-04T23:20:36.457Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "10",
+    "object_repr": "🖥️ Composants PC → Cartes Mères",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-04-04T23:20:45.591Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "11",
+    "object_repr": "🖥️ Composants PC → Boîtiers PC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-04-04T23:20:58.548Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "12",
+    "object_repr": "🖥️ Composants PC → Alimentations",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-04-04T23:21:41.529Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "13",
+    "object_repr": "🖥️ Composants PC → CPU Coolers",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-04-04T23:22:09.129Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "14",
+    "object_repr": "🖱️ Périphériques → Écrans",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-04-04T23:22:21.433Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "15",
+    "object_repr": "🖱️ Périphériques → Claviers",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-04-04T23:22:28.613Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "16",
+    "object_repr": "🖱️ Périphériques → Souris",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-04-04T23:22:37.452Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "17",
+    "object_repr": "🖱️ Périphériques → Casques",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-04-04T23:23:06.696Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "18",
+    "object_repr": "💡 Accessoires Setup → Tapis de Souris",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-04-04T23:23:18.609Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "19",
+    "object_repr": "💡 Accessoires Setup → Tapis de Bureau",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-04-04T23:23:30.270Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "20",
+    "object_repr": "🖱️ Périphériques → Rubans LED",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-04-04T23:23:43.795Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "21",
+    "object_repr": "🖱️ Périphériques → Gestion des Câbles",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-04-04T23:24:06.514Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "22",
+    "object_repr": "👾 Sélection Hommes → Claviers Gaming",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-04-04T23:24:20.024Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "23",
+    "object_repr": "👾 Sélection Hommes → Setups Noirs",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-04-04T23:24:31.549Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "24",
+    "object_repr": "👾 Sélection Hommes → Accessoires RGB",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-04-04T23:25:57.390Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "25",
+    "object_repr": "🎀 Sélection Femmes → Claviers Féminines",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-04-04T23:26:14.523Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "26",
+    "object_repr": "🎀 Sélection Femmes → Setups Pastels",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-04-04T23:26:30.603Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "27",
+    "object_repr": "🎀 Sélection Femmes → Accessoires Kawaii",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-04-05T23:26:29.310Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "AMD Ryzen 5 7600X",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-04-05T23:45:10.154Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "AMD Ryzen 7 7700X",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-04-05T23:46:41.591Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "AMD Ryzen 7 7700X",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is featured\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-04-05T23:46:56.002Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "AMD Ryzen 5 7600X",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is featured\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-04-05T23:56:32.110Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "3",
+    "object_repr": "Intel Core i5-13600K",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Intel Core i5-13600K \\u2014 image 0\"}}, {\"added\": {\"name\": \"product image\", \"object\": \"Intel Core i5-13600K \\u2014 image 0\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-04-06T22:14:30.860Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Intel Core i7-13700K",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-04-06T22:36:10.966Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "5",
+    "object_repr": "Nvidia RTX 4060",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-04-06T22:46:47.059Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Logitech G715 Aurora Collection",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Logitech G715 Aurora Collection \\u2014 image 0\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-04-25T13:23:22.358Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "🎀 Sélection Femmes",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-04-25T13:29:37.684Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "👾 Sélection Hommes",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-04-25T13:34:40.729Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "💡 Accessoires Setup",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-04-25T13:34:55.299Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "🖱️ Périphériques",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-04-25T13:37:50.562Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "🖥️ Composants PC",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-04-28T20:52:16.278Z",
+    "user": [
+      "rokia.remache@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "7",
+    "object_repr": "Samsung M8 Smart Monitor",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Samsung M8 Smart Monitor \\u2014 image 0\"}}, {\"added\": {\"name\": \"product image\", \"object\": \"Samsung M8 Smart Monitor \\u2014 image 0\"}}]"
+  }
+}
+]
