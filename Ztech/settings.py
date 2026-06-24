@@ -1,5 +1,6 @@
 # PATH: Ztech/ztech/settings.py
 
+import os
 from pathlib import Path
 from decouple import config
 
@@ -146,4 +147,18 @@ LOGGING = {
             'propagate': True,
         },
     },
+}
+INSTALLED_APPS += ['cloudinary', 'cloudinary_storage']
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dwlah6mw4',
+    'API_KEY': '844844414645432',
+    'API_SECRET': 'PnhwIilles3YrxY-G80UruszUL8',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
