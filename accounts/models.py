@@ -78,6 +78,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def get_default_address(self):
         return self.addresses.filter(is_default=True).first()
+    
+    def get_short_name(self):
+        return self.first_name
 
 
 class Address(models.Model):
