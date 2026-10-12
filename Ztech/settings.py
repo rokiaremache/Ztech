@@ -6,10 +6,10 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY  = config('SECRET_KEY', default='dev-secret-key-change-in-production')
+SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
-ALLOWED_HOSTS = ['ztech-opyu.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,9 +151,9 @@ LOGGING = {
 INSTALLED_APPS += ['cloudinary', 'cloudinary_storage']
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'dwlah6mw4'),
-    'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '844844414645432'),
-    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'PnhwIilles3YrxY-G80UruszUL8'),
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
+    'API_KEY': config('CLOUDINARY_API_KEY', default=''),
+    'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
